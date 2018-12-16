@@ -1,0 +1,51 @@
+<% include ./partials/header %>
+
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Buy Cars</a></li>
+                                <li><a href="#">Sell Cars</a></li>
+                                <li><a href="#">Get In Touch</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </nav>
+    
+
+    <div class="container top" style="margin-bottom:3em;">
+        <div class="col-lg-4 col-md-4 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+                    <div onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                        ADD NEW CARS
+                    </div>
+            
+                    <div onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                        VIEW UPLOADED PRODUCTS
+                    </div>
+                            
+                    <div style="font-weight: bold; color:#FFC300;" onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
+                        SEE QUERIES
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+                    <img src="/uploads/NotAvailable.png" class="img-thumbnail" alt="Responsive image">
+                </div>
+            </div>
+        </div>
+    </div>
+<% include ./partials/footer %>

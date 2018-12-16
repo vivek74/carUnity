@@ -1,0 +1,220 @@
+<% include ./partials/header %>
+
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Buy Cars</a></li>
+                                <li><a href="#">Sell Cars</a></li>
+                                <li><a href="#">Get In Touch</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </nav>
+
+    <aside id="colorlib-hero" class="breadcrumbs">
+	    <div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(/images/cover-img-1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Product Detail</h1>
+				   					<h2 class="bread"><span><a href="/admin/view_all_cars">Admin</a></span> <span><a href="/admin/view_all_cars">All Product</a></span> <span>Product Detail</span></h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+	</aside>
+
+	<div class="colorlib-shop">
+		<div class="container">
+			<div class="row row-pb-lg">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="product-detail-wrap">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="product-entry">
+									<div class="product-img" style="background-image: url(<%=data.carImage1%>);">
+											
+									</div>
+									<div class="thumb-nail">
+											<a class="thumb-img" style="background-image: url(<%=data.carImage2%>);"></a>
+											<a class="thumb-img" style="background-image: url(<%=data.carImage3%>);"></a>
+											<a class="thumb-img" style="background-image: url(<%=data.carImage4%>);"></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="desc">
+									<h3><%=data.model%></h3>
+									<p class="price">
+										<span>Rs.<%=data.price%></span> 		
+									</p>
+                                    <div style="margin-bottom:1em; margin-top:1em;" class="text-center colorlib-heading">
+                                        <h2 style="margin:0;"><span>Sellel Information</span></h2>
+                                    </div>
+									<p style="font-weight:bold; margin:0;">Name : <%=data.firstName%> <%=data.lastName%></p>
+                                    <p style="font-weight:bold;margin:0;">Email Id : <%=data.emailId%></p>
+                                    <p style="font-weight:bold;margin:0;">Phone No : <%=data.phoneNo%></p>
+                                    <p style="font-weight:bold;margin:0;">Pincode : <%=data.pincode%></p>
+                                    <div style="margin-bottom:1em; margin-top:1em;" class="text-center colorlib-heading">
+                                        <h2 style="margin:0;"><span>Product Detail</span></h2>
+                                    </div>
+                                    <p style="font-weight:bold;margin:0;">Catergory : <%=data.catergory%></p>
+                                    <p style="font-weight:bold;margin:0;">Make : <%=data.make%></p>
+                                    <p style="font-weight:bold;margin:0;">Model : <%=data.model%></p>
+                                    <p style="font-weight:bold;margin:0;">Year : <%=data.year%></p>
+                                    <p style="font-weight:bold;margin:0;">Trim : <%=data.trim%></p>
+                                    <p style="font-weight:bold;margin:0;">Kilometers Driven : <%=data.kilometersDriven%> KM</p>
+                                    <p style="font-weight:bold;margin:0;">Vehicle RegNo : <%=data.vehicleRegNo%></p>
+
+									<p style="margin-top:2em;"><a class="btn btn-primary btn-addtocart" data-toggle="modal" data-target=".bd-example-modal-lg"> Edit Details</a></p>
+								</div>
+							</div>
+				        </div>
+			        </div>
+		        </div>
+	        </div>
+        </div>
+    </div>
+
+    <!--model  -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">EDIT CAR DETAILS</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="/admin/edit_car_details/<%=data.id%>" method="post" enctype="multipart/form-data">
+                <div class="modal-body">
+                    
+                    <div class="form-group">
+                            <label for="carPic">Upload car pics</label>
+                            <input id="carPic" name="myImage" type="file" class="form-control-file" multiple>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="fristname">First name</label>
+                                    <input type="text" name="firstName" class="form-control" id="fristname" value="<%=data.firstName%>">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Last name</label>
+                                    <input type="text" name="lastName" class="form-control" id="lastname" value="<%=data.lastName%>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="emailId" class="form-control" id="email" value="<%=data.emailId%>">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone number</label>
+                                    <input type="number" name="phoneNo" class="form-control" id="phone" value="<%=data.phoneNo%>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="catergory">Catergory</label>
+                                    <input type="text" name="catergory" class="form-control" id="catergory" value="<%=data.catergory%>">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="make">Make</label>
+                                    <input type="text" name="make" class="form-control" id="make" value="<%=data.make%>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="model">Model</label>
+                                    <input type="text" name="model" class="form-control" id="model" value="<%=data.model%>">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <input type="text" name="year" class="form-control" id="year" value="<%=data.year%>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="trim">Trim</label>
+                                    <input type="text" name="trim" class="form-control" id="trim" value="<%=data.trim%>">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="pincode">Pincode</label>
+                                    <input type="number" name="pincode" class="form-control" id="pincode" value="<%=data.pincode%>">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="kilometersDriven">Kilometers Driven</label>
+                                    <input type="text" name="kilometersDriven" class="form-control" id="kilometersDriven" value="<%=data.kilometersDriven%>">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="vehicleRegNo">Vehicle RegNo</label>
+                                    <input type="text" name="vehicleRegNo" class="form-control" id="vehicleRegNo" value="<%=data.vehicleRegNo%>">
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" name="price" class="form-control" id="price" value="<%=data.price%>">
+                        </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+<% include ./partials/footer %>

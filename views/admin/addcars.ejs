@@ -1,0 +1,155 @@
+<% include ./partials/header %>
+
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Buy Cars</a></li>
+                                <li><a href="#">Sell Cars</a></li>
+                                <li><a href="#">Get In Touch</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </nav>
+    
+
+    <div class="container top" style="margin-bottom:3em;">
+        <div class="col-lg-4 col-md-4 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+                    <div style="font-weight: bold; color:#FFC300;" onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                        ADD NEW CARS
+                    </div>
+            
+                    <div onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                        VIEW UPLOADED PRODUCTS
+                    </div>
+                            
+                    <div onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
+                        SEE QUERIES
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+                    <form action="/admin/add_new_car" method="post" enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label for="carPic">Upload car pics</label>
+                            <input id="carPic" name="myImage" type="file" class="form-control-file" multiple>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="fristname">First name</label>
+                                    <input type="text" name="firstName" class="form-control" id="fristname" placeholder="Fristname">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Last name</label>
+                                    <input type="text" name="lastName" class="form-control" id="lastname" placeholder="Lastname">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" name="emailId" class="form-control" id="email" placeholder="Lastname">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone number</label>
+                                    <input type="number" name="phoneNo" class="form-control" id="phone" placeholder="9001578356">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="catergory">Catergory</label>
+                                    <input type="text" name="catergory" class="form-control" id="catergory" placeholder="Catergory">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="make">Make</label>
+                                    <input type="text" name="make" class="form-control" id="make" placeholder="Make">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="model">Model</label>
+                                    <input type="text" name="model" class="form-control" id="model" placeholder="Model">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="year">Year</label>
+                                    <input type="text" name="year" class="form-control" id="year" placeholder="Year">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="trim">Trim</label>
+                                    <input type="text" name="trim" class="form-control" id="trim" placeholder="Trim">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="pincode">Pincode</label>
+                                    <input type="number" name="pincode" class="form-control" id="pincode" placeholder="Pincode">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="kilometersDriven">Kilometers Driven</label>
+                                    <input type="text" name="kilometersDriven" class="form-control" id="kilometersDriven" placeholder="KilometersDriven">
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="vehicleRegNo">Vehicle RegNo</label>
+                                    <input type="text" name="vehicleRegNo" class="form-control" id="vehicleRegNo" placeholder="VehicleRegNo">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" name="price" class="form-control" id="price" placeholder="Price">
+                        </div>
+
+                        <button type="submit" class="btn btn-secondary card-1" >Submit</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<% include ./partials/footer %>

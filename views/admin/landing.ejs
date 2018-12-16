@@ -1,0 +1,71 @@
+<% include ./partials/header %>
+
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="#">Buy Cars</a></li>
+                                <li><a href="#">Sell Cars</a></li>
+                                <li><a href="#">Get In Touch</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </nav>
+    
+
+    <div class="container top" style="margin-bottom:3em;">
+        <div class="col-lg-4 col-md-4 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+                    <div onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                        ADD NEW CARS
+                    </div>
+            
+                    <div style="font-weight: bold; color:#FFC300;" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                        VIEW UPLOADED PRODUCTS
+                    </div>
+                            
+                    <div onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
+                        SEE QUERIES
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+                    <% data.reverse().forEach(function(cars){ %>
+                        <div onclick="window.location.href = '/admin/product_details/<%=cars.id%>'" class="card card-1 pointer" style="margin-top:1em;">
+                            <div style="padding:1em;">
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2 col-xs-2" style="padding:1em;">
+                                        <img style="width:8em;" src="<%=cars.carImage1%>" class="img-thumbnail">
+                                    </div>
+                                    <div class="col-md-10 col-sm-10 col-xs-10" style="padding:1em;">
+                                        <div class="card card-2">
+                                            <div style="padding:1em;">
+                                                <p style="font-weight:bold; margin:0;">Owner name :  <%=cars.firstName%></p>
+                                                <p style="font-weight:bold; margin:0;">Phone no :  <%=cars.phoneNo%></p>
+                                                <p style="font-weight:bold; margin:0;">Catergory :  <%=cars.catergory%></p>
+                                                <p style="font-weight:bold; margin:0;">Model :  <%=cars.model%></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%})%>
+                </div>
+            </div>
+        </div>
+    </div>
+<% include ./partials/footer %>
