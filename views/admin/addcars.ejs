@@ -1,11 +1,12 @@
 <% include ./partials/header %>
+<div id="page">
 
     <nav class="colorlib-nav" role="navigation">
         <div class="top-menu">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-2">
-                            <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                            <div id="colorlib-logo"><a href="/">Store</a></div>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
@@ -26,16 +27,16 @@
         <div class="col-lg-4 col-md-4 col-12">
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
-                    <div style="font-weight: bold; color:#FFC300;" onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
-                        ADD NEW CARS
+                    <div style="font-weight: bold; color:#FFC300; background-color: #fafafa;" onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                        <p>ADD NEW CARS</p>
                     </div>
             
                     <div onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
-                        VIEW UPLOADED PRODUCTS
+                        <p style="font-weight:bold;">VIEW UPLOADED PRODUCTS</p>
                     </div>
                             
                     <div onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
-                        SEE QUERIES
+                        <p style="font-weight:bold;">SEE QUERIES</p>
                     </div>
                 </div>
             </div>
@@ -44,11 +45,6 @@
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
                     <form action="/admin/add_new_car" method="post" enctype="multipart/form-data">
-
-                        <div class="form-group">
-                            <label for="carPic">Upload car pics</label>
-                            <input id="carPic" name="myImage" type="file" class="form-control-file" multiple>
-                        </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -69,7 +65,7 @@
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" name="emailId" class="form-control" id="email" placeholder="Lastname">
+                                    <input type="text" name="emailId" class="form-control" id="email" placeholder="Email">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -140,10 +136,21 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="price">Price</label>
-                            <input type="text" name="price" class="form-control" id="price" placeholder="Price">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="carPic">Upload car pics</label>
+                                    <input style="padding:1em;" id="carPic" name="myImage" type="file" class="form-control-file" multiple>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <div class="form-group">
+                                    <label for="price">Price</label>
+                                    <input type="text" name="price" class="form-control" id="price" placeholder="Price">
+                                </div>
+                            </div>
                         </div>
+                        
 
                         <button type="submit" class="btn btn-secondary card-1" >Submit</button>
 

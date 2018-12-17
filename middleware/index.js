@@ -5,7 +5,7 @@ module.exports = {
             return next();
         }
         req.flash("error", "You must be signed in to do that!");
-        //alert("Must signed to that");
+
         res.redirect("/");
     },
 }

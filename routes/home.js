@@ -8,7 +8,7 @@ router.get("/", function(req,res){
         if(err){
             res.send(err);
         } else {
-            res.render('../views/home/landing');
+            res.render('../views/home/landing',{data:data});
         }
     })
 });

@@ -1,4 +1,5 @@
 <% include ../partials/header %>
+<div id="page">
 <nav class="colorlib-nav" role="navigation">
         <div class="top-menu">
                 <div class="container">
@@ -8,11 +9,16 @@
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
-                                <li><a href="/admin/view_all_cars">Admin</a></li>
+                                <%if(currentUser){%>
+                                    <li><a href="/admin/view_all_cars">Admin</a></li>
+                                <%}%>
                                 <li class="active"><a href="/">Home</a></li>
                                 <li><a href="#">Buy Cars</a></li>
                                 <li><a href="#">Sell Cars</a></li>
                                 <li><a href="#">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li><a href="/index/logout">Logout</a></li>
+                                <%}%>
                             </ul>
                         </div>
                     </div>
@@ -83,45 +89,6 @@
     </div>
 </aside>
 
-<div id="colorlib-featured-product">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <a href="shop.html" class="f-product-1" style="background-image: url(/images/img_bg_3.jpg);">
-                    <div class="desc">
-                        <h2>All <br>asura <br>cars</h2>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <div class="row">
-                    <div class="col-md-6">
-                        <a href="" class="f-product-2" style="background-image: url(/images/img_bg_2.jpg);">
-                            <div class="desc">
-                                <h2>New <br>Arrival <br>Cars</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6">
-                        <a href="" class="f-product-2" style="background-image: url(/images/img_bg_1.jpg);">
-                            <div class="desc">
-                                <h2>All <br>BMW <br>cars</h2>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-12">
-                        <a href="" class="f-product-2" style="background-image: url(/images/img_bg_3.jpg);">
-                            <div class="desc">
-                                <h2>All <br>audi <br>cars</h2>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- new arival -->
 <div class="colorlib-shop">
     <div class="container">
@@ -132,82 +99,25 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-3 text-center">
-                <div class="product-entry">
-                    <div class="product-img" style="background-image: url(images/item-5.jpg);">
-                        <p class="tag"><span class="new">New</span></p>
-                        <div class="cart">
-                            <p>
-                                <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                            </p>
+
+            <% data.reverse().forEach(function(cars){ %>
+                <div class="col-md-3 text-center">
+                    <div class="product-entry">
+                        <div class="product-img" style="background-image: url(<%=cars.carImage1%>);">
+                            <p class="tag"><span class="new">New</span></p>
+                            <div class="cart">
+                                <p>
+                                    <span><a href="#"><i class="icon-eye"></i></a></span> 
+                                </p>
+                            </div>
+                        </div>
+                        <div class="desc">
+                            <h3><a><%=cars.model%></a></h3>
+                            <p class="price"><span>Rs <%=cars.price%></span></p>
                         </div>
                     </div>
-                    <div class="desc">
-                        <h3><a href="shop.html">Floral Dress</a></h3>
-                        <p class="price"><span>$300.00</span></p>
-                    </div>
                 </div>
-            </div>
-            <div class="col-md-3 text-center">
-                <div class="product-entry">
-                    <div class="product-img" style="background-image: url(images/item-6.jpg);">
-                        <p class="tag"><span class="new">New</span></p>
-                        <div class="cart">
-                            <p>
-                                <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="desc">
-                        <h3><a href="shop.html">Floral Dress</a></h3>
-                        <p class="price"><span>$300.00</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 text-center">
-                <div class="product-entry">
-                    <div class="product-img" style="background-image: url(images/item-7.jpg);">
-                        <p class="tag"><span class="new">New</span></p>
-                        <div class="cart">
-                            <p>
-                                <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="desc">
-                        <h3><a href="shop.html">Floral Dress</a></h3>
-                        <p class="price"><span>$300.00</span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3 text-center">
-                <div class="product-entry">
-                    <div class="product-img" style="background-image: url(images/item-8.jpg);">
-                        <p class="tag"><span class="new">New</span></p>
-                        <div class="cart">
-                            <p>
-                                <span class="addtocart"><a href="cart.html"><i class="icon-shopping-cart"></i></a></span> 
-                                <span><a href="product-detail.html"><i class="icon-eye"></i></a></span> 
-                                <span><a href="#"><i class="icon-heart3"></i></a></span>
-                                <span><a href="add-to-wishlist.html"><i class="icon-bar-chart"></i></a></span>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="desc">
-                        <h3><a href="shop.html">Floral Dress</a></h3>
-                        <p class="price"><span>$300.00</span></p>
-                    </div>
-                </div>
-            </div>
+            <%});%>
         </div>
     </div>
 </div>
@@ -456,6 +366,7 @@
 					</div>
 				</div>	
 			</div>
-	</div>
+    </div>
+
 
 <% include ../partials/footer %>

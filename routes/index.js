@@ -7,26 +7,25 @@ var middleware = require("../middleware");
 
 //login
 router.get("/admin_login", function(req,res){
-  res.render("login");
+  res.render('../views/admin/admin-login');
 });
 
 //register
 router.get("/register", function(req, res){
-  res.render("signup");
+  res.render('../views/admin/admin-signup');
 });
 
 //post register
 router.post("/admin_register", function(req,res){
   var newUser = new User({
     username: req.body.username,
-    phone: req.body.username,
     password: req.body.password,
     });
     User.register(newUser, req.body.password, function(err, user){
         if(err){
             res.send(err)
         }else{
-        	res.redirect("/user-login");
+        	res.redirect("/index/admin_login");
         }
     });
 });
@@ -34,15 +33,15 @@ router.post("/admin_register", function(req,res){
 //post login
 router.post("/admin_login", passport.authenticate("local", 
     {
-        failureRedirect: "/"
+        failureRedirect: "/index/admin_login"
     }), function(req, res){
-    res.send(user);
+    res.redirect('/');
 });
 
 //logout
 router.get("/logout", function(req, res){
    req.logout();
-   res.send("sucessfully loged out")
+   res.redirect('/');
 }); 
 
 //user-login

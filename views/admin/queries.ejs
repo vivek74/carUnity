@@ -1,11 +1,11 @@
 <% include ./partials/header %>
-
+<div id="page">
     <nav class="colorlib-nav" role="navigation">
         <div class="top-menu">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-2">
-                            <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                            <div id="colorlib-logo"><a href="/">Store</a></div>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
@@ -27,15 +27,15 @@
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
                     <div onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
-                        ADD NEW CARS
+                        <p style="font-weight:bold;">ADD NEW CARS</p>
                     </div>
             
                     <div onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
-                        VIEW UPLOADED PRODUCTS
+                        <p style="font-weight:bold;">VIEW UPLOADED PRODUCTS</p>
                     </div>
                             
-                    <div style="font-weight: bold; color:#FFC300;" onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
-                        SEE QUERIES
+                    <div style="font-weight: bold; color:#FFC300;background-color: #fafafa;" onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
+                        <p>SEE QUERIES</p>
                     </div>
                 </div>
             </div>

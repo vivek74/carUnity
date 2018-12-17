@@ -1,11 +1,11 @@
 <% include ./partials/header %>
-
+<div id="page">
     <nav class="colorlib-nav" role="navigation">
         <div class="top-menu">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-2">
-                            <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                            <div id="colorlib-logo"><a href="/">Store</a></div>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
@@ -27,15 +27,15 @@
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
                     <div onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
-                        ADD NEW CARS
+                        <p style="font-weight:bold;">ADD NEW CARS</p>
                     </div>
             
-                    <div style="font-weight: bold; color:#FFC300;" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
-                        VIEW UPLOADED PRODUCTS
+                    <div style="font-weight: bold; color:#FFC300;background-color: #fafafa;" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                        <p>VIEW UPLOADED PRODUCTS</p>
                     </div>
                             
                     <div onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
-                        SEE QUERIES
+                        <p style="font-weight:bold;">SEE QUERIES</p>
                     </div>
                 </div>
             </div>
@@ -45,12 +45,12 @@
                 <div class="card-body" style="padding:1em;">
                     <% data.reverse().forEach(function(cars){ %>
                         <div onclick="window.location.href = '/admin/product_details/<%=cars.id%>'" class="card card-1 pointer" style="margin-top:1em;">
-                            <div style="padding:1em;">
+                            <div style="padding:1em; background-color: #fafafa;">
                                 <div class="row">
-                                    <div class="col-md-2 col-sm-2 col-xs-2" style="padding:1em;">
-                                        <img style="width:8em;" src="<%=cars.carImage1%>" class="img-thumbnail">
+                                    <div class="col-md-4 col-sm-4 col-xs-6" style="padding:1em;">
+                                        <img src="<%=cars.carImage1%>" class="img-thumbnail">
                                     </div>
-                                    <div class="col-md-10 col-sm-10 col-xs-10" style="padding:1em;">
+                                    <div class="col-md-8 col-sm-8 col-xs-6" style="padding:1em;">
                                         <div class="card card-2">
                                             <div style="padding:1em;">
                                                 <p style="font-weight:bold; margin:0;">Owner name :  <%=cars.firstName%></p>

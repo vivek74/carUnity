@@ -1,0 +1,54 @@
+<% include ../partials/header %>
+<div id="page">
+    <nav class="colorlib-nav" role="navigation">
+            <div class="top-menu">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                            </div>
+                            <div class="col-xs-10 text-right menu-1">
+                                <ul>
+                                    <li><a href="/admin/view_all_cars">Admin</a></li>
+                                    <li class="active"><a href="/">Home</a></li>
+                                    <li><a href="#">Buy Cars</a></li>
+                                    <li><a href="#">Sell Cars</a></li>
+                                    <li><a href="#">Get In Touch</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+    </nav>
+
+    <!-- login -->
+    <div class="colorlib-shop">
+        <div class="container">
+
+            <div class="card">
+                <div class="card-body">
+                    <div class="card card-1" style="width:40em; margin: 0 auto">
+                        <div class="card-body" style="padding:2em;">
+                            <h4 style="text-align:center;">ADMIN LOGIN</h4>
+                            <form action="/index/admin_login" method="post">
+                                <div class="form-group">
+                                  <label style="font-family: font-family: 'PT Sans Narrow', sans-serif;" for="exampleInputEmail1">EMAIL ID</label>
+                                  <input type="Email" name="username" class="form-control card-2" placeholder="Email address" required>
+                                </div>
+                                <div class="form-group">
+                                  <label style="font-family: font-family: 'PT Sans Narrow', sans-serif;" for="exampleInputPassword1">PASSWORD</label>
+                                  <input type="password" name="password" class="form-control card-2" placeholder="Password" required>
+                                </div>
+                                <hr>
+                                <button type="submit" class="btn btn-primary btn-lg btn-block card-1 cus-button">Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<% include ../partials/footer %>
