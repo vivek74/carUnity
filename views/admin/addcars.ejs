@@ -10,11 +10,16 @@
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
-                                <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
-                                <li><a href="/">Home</a></li>
-                                <li><a href="#">Buy Cars</a></li>
-                                <li><a href="#">Sell Cars</a></li>
-                                <li><a href="#">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <%}%>
+                                <li ><a href="/">Home</a></li>
+                                <li><a href="/buy-cars">Buy Cars</a></li>
+                                <li><a href="/sell-cars">Sell Cars</a></li>
+                                <li><a href="/contact-us">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li><a href="/index/logout">Logout</a></li>
+                                <%}%>
                             </ul>
                         </div>
                     </div>
@@ -27,16 +32,25 @@
         <div class="col-lg-4 col-md-4 col-12">
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
-                    <div style="font-weight: bold; color:#FFC300; background-color: #fafafa;" onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
-                        <p>ADD NEW CARS</p>
+                    
+                    <div style="font-weight: bold; color:#FFC300;background-color: #fafafa;" onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold; text-align: center;">ADD NEW CARS</p>
                     </div>
             
-                    <div onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
-                        <p style="font-weight:bold;">VIEW UPLOADED PRODUCTS</p>
+                    <div style="font-weight: bold; text-align: center;" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                        <p>VIEW UPLOADED PRODUCTS</p>
                     </div>
                             
                     <div onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
-                        <p style="font-weight:bold;">SEE QUERIES</p>
+                        <p style="font-weight:bold;text-align: center;">MANAGE QUERIES</p>
+                    </div>
+
+                    <div onclick="window.location.href = '/admin/manage-testimonial'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold;text-align: center;">MANAGE TESTIMONIAL</p>
+                    </div>
+
+                    <div onclick="window.location.href = '/admin/manage-category'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold;text-align: center;">MANAGE CATEGORY</p>
                     </div>
                 </div>
             </div>
@@ -152,7 +166,8 @@
                         </div>
                         
 
-                        <button type="submit" class="btn btn-secondary card-1" >Submit</button>
+                        
+                        <button type="submit" class="btn btn-primary card-1">SUBMIT</button>
 
                     </form>
                 </div>

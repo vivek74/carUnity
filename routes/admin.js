@@ -2,6 +2,13 @@ var express = require("express");
 var router  = express.Router();
 var Car = require('../models/car');
 var User = require('../models/user');
+
+var Category = require("../models/car/category");
+var Make = require("../models/car/make");
+var Model = require("../models/car/model");
+var Trim = require("../models/car/trim");
+var Year = require("../models/car/year");
+
 var moment = require('moment-timezone');
 var multer=require('multer');
 var path= require('path');
@@ -165,5 +172,35 @@ router.get("/product_details/:id", function(req,res){
     })
     
 });
+
+//manage category
+router.get("/manage-category", function(req,res){
+    res.render('../views/admin/category.ejs');
+});
+//add category
+router.post("/create-category", function(req,res){
+    Category.create({text:req.body.new}, function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            res.contentType('json');
+            res.send({data});
+        }
+    })
+});
+
+//reterive category
+router.get("/retrieve_category", function(req,res){
+    Category.find({}, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            res.contentType('json');
+            res.send({data});
+        }
+    })
+    
+});
+
 
 module.exports = router;

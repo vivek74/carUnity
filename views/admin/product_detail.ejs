@@ -9,11 +9,16 @@
                         </div>
                         <div class="col-xs-10 text-right menu-1">
                             <ul>
-                                <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
-                                <li><a href="/">Home</a></li>
-                                <li><a href="#">Buy Cars</a></li>
-                                <li><a href="#">Sell Cars</a></li>
-                                <li><a href="#">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <%}%>
+                                <li ><a href="/">Home</a></li>
+                                <li><a href="/buy-cars">Buy Cars</a></li>
+                                <li><a href="/sell-cars">Sell Cars</a></li>
+                                <li><a href="/contact-us">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li><a href="/index/logout">Logout</a></li>
+                                <%}%>
                             </ul>
                         </div>
                     </div>

@@ -16,3 +16,17 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 .pointer{
   cursor: pointer;
 }
+.lodingLogin{
+  display: none;
+}
+
+
+@media screen and (min-width: 1000px) and (max-width: 3500px) {
+  .card-padding{
+    padding-bottom: 12em !important;
+  }
+
+  .card-padding1{
+    padding-bottom: 19em !important;;
+  }
+}

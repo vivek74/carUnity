@@ -25,4 +25,9 @@ router.get("/view_details/:carId", function(req,res){
     })
 });
 
+//contact us
+router.get("/contact-us", function(req,res){
+    res.render("../views/home/get_in_touch.ejs");
+})
+
 module.exports = router;
