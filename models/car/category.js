@@ -6,9 +6,12 @@ var categotySchema = mongoose.Schema({
     [
         {
            type: mongoose.Schema.Types.ObjectId,
-           ref: "Value"
+           ref: "Make"
         }
     ]
+},
+    {
+        usePushEach: true 
 });
 
 module.exports = mongoose.model("Category", categotySchema);

@@ -93,14 +93,18 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="catergory">Catergory</label>
-                                    <input type="text" name="catergory" class="form-control" id="catergory" placeholder="Catergory">
+                                    <label for="category">Select category</label>
+                                    <select name="catergory" onchange="selectCategorytrim(this.value)" id="allCategortrimAdd" class="form-control">
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="make">Make</label>
-                                    <input type="text" name="make" class="form-control" id="make" placeholder="Make">
+                                    <label for="make">Select make</label>
+                                    <select name="make" onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control">
+                                        <option>Select category</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -108,14 +112,18 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="model">Model</label>
-                                    <input type="text" name="model" class="form-control" id="model" placeholder="Model">
+                                    <label for="model">Select model</label>
+                                    <select name="model" onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control">
+                                        <option>Select make</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="year">Year</label>
-                                    <input type="text" name="year" class="form-control" id="year" placeholder="Year">
+                                    <label for="year">Select year</label>
+                                    <select onchange="selectYeartrim(this.value)" name="year" id="allModeltrim" class="form-control">
+                                        <option>Select model</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -123,8 +131,10 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="trim">Trim</label>
-                                    <input type="text" name="trim" class="form-control" id="trim" placeholder="Trim">
+                                    <label for="trim">Select trim</label>
+                                    <select name="trim" id="allYeartrim" class="form-control">
+                                        <option>Select year</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -164,14 +174,11 @@
                                 </div>
                             </div>
                         </div>
-                        
-
-                        
                         <button type="submit" class="btn btn-primary card-1">SUBMIT</button>
-
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    
 <% include ./partials/footer %>

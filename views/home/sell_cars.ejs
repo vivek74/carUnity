@@ -1,0 +1,198 @@
+<% include ../partials/header %>
+    <div id="page">
+            <nav class="colorlib-nav" role="navigation">
+                    <div class="top-menu">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <div id="colorlib-logo"><a href="index.html">Store</a></div>
+                                    </div>
+                                    <div class="col-xs-10 text-right menu-1">
+                                        <ul>
+                                            <%if(currentUser){%>
+                                                <li><a href="/admin/view_all_cars">Admin</a></li>
+                                            <%}%>
+                                            <li ><a href="/">Home</a></li>
+                                            <li><a href="/buy-cars">Buy Cars</a></li>
+                                            <li><a href="/sell-cars">Sell Cars</a></li>
+                                            <li class="active"><a href="/contact-us">Get In Touch</a></li>
+                                            <%if(currentUser){%>
+                                                <li><a href="/index/logout">Logout</a></li>
+                                            <%}%>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+            </nav>
+            <aside id="colorlib-hero" class="breadcrumbs">
+                    <div class="flexslider">
+                        <ul class="slides">
+                           <li style="background-image: url(images/cover-img-1.jpg);">
+                               <div class="overlay"></div>
+                               <div class="container-fluid">
+                                   <div class="row">
+                                       <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+                                           <div class="slider-text-inner text-center">
+                                               <h1>SELL YOUR CAR</h1>
+                                               <h2 class="bread"><span><a href="/">Home</a></span> <span>SELL CARS</span></h2>
+                                           </div>
+                                       </div>
+                                   </div>
+                               </div>
+                           </li>
+                          </ul>
+                      </div>
+                </aside>
+        
+                <div id="colorlib-contact">
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-md-10 col-md-offset-1">
+                                <div style="background-color:#FFC300; " class="card card-2">
+                                    <div style="padding:1em;" class="card-body">
+                                        <h3 style="text-align:center; color:white;">Contact Information</h3>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            
+                            <div style="margin-top:1em;" class="col-md-10 col-md-offset-1">
+                                <div class="contact-wrap">
+                                    <h3>SELL YOUR CAR</h3>
+                                    <form action="/admin/add_new_car" method="post" enctype="multipart/form-data">
+
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="fristname">First name</label>
+                                                    <input type="text" name="firstName" class="form-control" id="fristname" placeholder="Fristname">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="lastname">Last name</label>
+                                                    <input type="text" name="lastName" class="form-control" id="lastname" placeholder="Lastname">
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="text" name="emailId" class="form-control" id="email" placeholder="Email">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="phone">Phone number</label>
+                                                    <input type="number" name="phoneNo" class="form-control" id="phone" placeholder="9001578356">
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="category">Select category</label>
+                                                    <select name="catergory" onchange="selectCategorytrim(this.value)" id="allCategortrimAdd" class="form-control">
+                
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="make">Select make</label>
+                                                    <select name="make" onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control">
+                                                        <option>Select category</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="model">Select model</label>
+                                                    <select name="model" onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control">
+                                                        <option>Select make</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="year">Select year</label>
+                                                    <select onchange="selectYeartrim(this.value)" name="year" id="allModeltrim" class="form-control">
+                                                        <option>Select model</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="trim">Select trim</label>
+                                                    <select name="trim" id="allYeartrim" class="form-control">
+                                                        <option>Select year</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="pincode">Pincode</label>
+                                                    <input type="number" name="pincode" class="form-control" id="pincode" placeholder="Pincode">
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="kilometersDriven">Kilometers Driven</label>
+                                                    <input type="text" name="kilometersDriven" class="form-control" id="kilometersDriven" placeholder="Kilometers Driven">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="vehicleRegNo">Vehicle Regno</label>
+                                                    <input type="text" name="vehicleRegNo" class="form-control" id="vehicleRegNo" placeholder="Vehicle Reg no.">
+                                                </div>
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="carPic">Upload car pics</label>
+                                                    <input style="padding:1em;" id="carPic" name="myImage" type="file" class="form-control-file" multiple>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input type="text" name="price" class="form-control" id="price" placeholder="Price">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        
+
+                                        <button type="submit" class="btn btn-primary card-1">SUBMIT</button>
+                                        
+                                    </form>
+
+                                    <div style="background-color:#cce5ff; margin-top:1em;" class="card card-2">
+                                        <div style="padding:1em;" class="card-body">
+                                            <h3 style="text-align:center; color:#004085">Contact Information</h3>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<% include ../partials/footer %>

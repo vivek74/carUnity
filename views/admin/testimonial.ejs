@@ -1,0 +1,141 @@
+<% include ./partials/header %>
+<div id="page">
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="colorlib-logo"><a href="/">Store</a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul>
+                                <%if(currentUser){%>
+                                    <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <%}%>
+                                <li ><a href="/">Home</a></li>
+                                <li><a href="/buy-cars">Buy Cars</a></li>
+                                <li><a href="/sell-cars">Sell Cars</a></li>
+                                <li><a href="/contact-us">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li><a href="/index/logout">Logout</a></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </nav>
+    
+
+    <div class="container top" style="margin-bottom:3em; ">
+        <div class="col-lg-4 col-md-4 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+                    <div  onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold; text-align: center;">ADD NEW CARS</p>
+                    </div>
+            
+                    <div style="font-weight: bold; text-align: center;" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                        <p>VIEW UPLOADED PRODUCTS</p>
+                    </div>
+                            
+                    <div onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold;text-align: center;">MANAGE QUERIES</p>
+                    </div>
+
+                    <div style="font-weight: bold; color:#FFC300;background-color: #fafafa;" onclick="window.location.href = '/admin/manage-testimonial'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold;text-align: center;">MANAGE TESTIMONIAL</p>
+                    </div>
+
+                    <div onclick="window.location.href = '/admin/manage-category'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold;text-align: center;">MANAGE CATEGORY</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-md-8 col-12">
+            <div class="card card-2">
+                <div class="card-body" style="padding:1em;">
+
+                    <div class="row">
+
+                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
+                            <div class="card card-1" >
+                                <div class="card-body" data-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category" style="padding:1em; text-align: center; background-color: #FFC300; font-weight: bold; color: white;">
+                                  VIEW ALL
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
+                            <div class="card card-1">
+                                <div id="retrieve-btn-make" class="card-body" data-toggle="collapse" href="#make" role="button" aria-expanded="false" aria-controls="make" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                  ADD NEW
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
+                            <div class="card card-1">
+                                <div id="retrieve-btn-model" class="card-body" data-toggle="collapse" href="#model" role="button" aria-expanded="false" aria-controls="model" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                  MANAGE
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    
+
+                </div>
+            </div>
+            <div class="card card-2">
+                <div style="margin:0;" class="card-body" style="padding:1em;">
+                    
+
+                    <div class="card card-2">
+                        <div class="collapse" id="category">
+                            <div class="card card-body card-padding" style="padding:1em;">
+                                <h5 class="card-title">VIEW ALL</h5>
+
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-2" style="margin-top:1em;">
+                        <div class="collapse" id="make">
+                            <div class="card card-body card-padding" style="padding:1em; ">
+                                <h5 class="card-title">ADD NEW</h5>
+
+                                
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-2" style="margin-top:1em;">
+                        <div class="collapse" id="model">
+                            <div class="card card-body card-padding" style="padding:1em; ">
+                                <h5 class="card-title">MANAGE</h5>
+
+                                
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    </script>
+
+<% include ./partials/footer %>

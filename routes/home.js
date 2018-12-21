@@ -25,9 +25,14 @@ router.get("/view_details/:carId", function(req,res){
     })
 });
 
+//sell car
+router.get("/sell-cars", function(req,res){
+    res.render("../views/home/sell_cars");
+});
+
 //contact us
 router.get("/contact-us", function(req,res){
-    res.render("../views/home/get_in_touch.ejs");
-})
+    res.render("../views/home/get_in_touch");
+});
 
 module.exports = router;

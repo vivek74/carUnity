@@ -6,9 +6,12 @@ var makeSchema = mongoose.Schema({
     [
         {
            type: mongoose.Schema.Types.ObjectId,
-           ref: "Value"
+           ref: "Model"
         }
     ]
+},
+{
+    usePushEach: true 
 });
 
 module.exports = mongoose.model("Make", makeSchema);

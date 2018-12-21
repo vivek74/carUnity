@@ -161,6 +161,11 @@ router.get("/queries", function(req,res){
     res.render('../views/admin/queries')
 });
 
+//queries
+router.get("/manage-testimonial", function(req,res){
+    res.render('../views/admin/testimonial')
+});
+
 //more details
 router.get("/product_details/:id", function(req,res){
     Car.findById(req.params.id, function(err,data){
@@ -189,6 +194,88 @@ router.post("/create-category", function(req,res){
     })
 });
 
+//add make
+router.post("/create-make", function(req,res){
+    Category.find({text:req.body.new.category}, function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            Make.create({text:req.body.new.make}, function(err, make_data){
+                if(err){
+                    console.log(err);
+                }else{
+                    data[0].make.push(make_data);
+                    data[0].save(function(err){
+                        res.end();
+                    })
+                }
+            })
+        }
+    })
+});
+
+//add model
+router.post("/create-model", function(req,res){
+    //console.log(req.body);
+    Make.find({text:req.body.new.make}, function(err,data){
+        if(err){
+            console.log(err);
+        } else {
+            Model.create({text:req.body.new.model}, function(err, model_data){
+                if(err){
+                    console.log(err)
+                } else {
+                    data[0].model.push(model_data);
+                    data[0].save(function(err){
+                        res.end();
+                    })
+                }
+            })
+        }
+    })
+});
+
+//add year
+router.post("/create-year", function(req,res){
+    //console.log(req.body);
+    Model.find({text:req.body.new.model}, function(err,data){
+        if(err){
+            console.log(err);
+        } else {
+            Year.create({text:req.body.new.year}, function(err, year_data){
+                if(err){
+                    console.log(err)
+                } else {
+                    data[0].year.push(year_data);
+                    data[0].save(function(err){
+                        res.end();
+                    })
+                }
+            })
+        }
+    })
+});
+
+//add trim
+router.post("/create-trim", function(req,res){
+    Year.find({text:req.body.new.year}, function(err,data){
+        if(err){
+            console.log(err);
+        } else {
+            Trim.create({text:req.body.new.trim}, function(err, trim_data){
+                if(err){
+                    console.log(err)
+                } else {
+                    data[0].trim.push(trim_data);
+                    data[0].save(function(err){
+                        res.end();
+                    })
+                }
+            })
+        }
+    })
+});
+
 //reterive category
 router.get("/retrieve_category", function(req,res){
     Category.find({}, function(err,data){
@@ -199,7 +286,74 @@ router.get("/retrieve_category", function(req,res){
             res.send({data});
         }
     })
-    
+});
+
+//retrive make
+router.get("/retrieve_make", function(req,res){
+    Category.find({"text":req.query.categoryName}, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            Category.findById(data[0].id).populate("make").exec(function(err, foundMake){
+                if(err){
+                    console.log(err)
+                }else{
+                    res.send({foundMake});
+                }
+            });
+        }
+    })
+});
+
+//retrieve model
+router.get("/retrieve_model", function(req,res){
+    Make.find({"text":req.query.makeName}, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            Make.findById(data[0].id).populate("model").exec(function(err, foundMade){
+                if(err){
+                    console.log(err)
+                }else{
+                    res.send({foundMade});
+                }
+            });
+        }
+    })
+});
+
+//retrive year
+router.get("/retrieve_year", function(req,res){
+    Model.find({"text":req.query.modelName}, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            Model.findById(data[0].id).populate("year").exec(function(err, foundYear){
+                if(err){
+                    console.log(err)
+                }else{
+                    res.send({foundYear});
+                }
+            });
+        }
+    })
+});
+
+//retrive trim
+router.get("/retrieve_trim", function(req,res){
+    Year.find({"text":req.query.yearName}, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            Year.findById(data[0].id).populate("trim").exec(function(err, foundTrim){
+                if(err){
+                    console.log(err)
+                }else{
+                    res.send({foundTrim});
+                }
+            });
+        }
+    })
 });
 
 

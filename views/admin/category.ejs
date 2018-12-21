@@ -77,7 +77,7 @@
 
                         <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
                             <div class="card card-1">
-                                <div class="card-body" data-toggle="collapse" href="#model" role="button" aria-expanded="false" aria-controls="model" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                <div id="retrieve-btn-model" class="card-body" data-toggle="collapse" href="#model" role="button" aria-expanded="false" aria-controls="model" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
                                   ADD MODEL
                                 </div>
                             </div>
@@ -85,7 +85,7 @@
 
                         <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
                             <div class="card card-1">
-                                <div class="card-body" data-toggle="collapse" href="#year" role="button" aria-expanded="false" aria-controls="year" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                <div id="retrieve-btn-year" class="card-body" data-toggle="collapse" href="#year" role="button" aria-expanded="false" aria-controls="year" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
                                   ADD YEAR
                                 </div>
                             </div>
@@ -93,7 +93,7 @@
 
                         <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
                             <div class="card card-1">
-                                <div class="card-body" data-toggle="collapse" href="#trim" role="button" aria-expanded="false" aria-controls="trim" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                <div id="retrieve-btn-trim" class="card-body" data-toggle="collapse" href="#trim" role="button" aria-expanded="false" aria-controls="trim" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
                                   ADD TRIM
                                 </div>
                             </div>
@@ -138,22 +138,22 @@
                             <div class="card card-body card-padding" style="padding:1em; ">
                                 <h5 class="card-title">ADD MAKE</h5>
 
-                                <form>
+                                <form id="make_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-6 " >
                                             <label for="make">Select category</label>
-                                            <select id="allCategory" class="form-control">
+                                            <select name="category_second" id="allCategory" class="form-control">
 
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <div class="form-group">
-                                                <label for="make">Category Name</label>
-                                                <input type="text" name="make" class="form-control" id="make" placeholder="Make name">
+                                                <label for="make">Make</label>
+                                                <input type="text" name="make" class="form-control" id="make_frist" placeholder="Make">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                                <button type="submit" class="btn btn-primary card-1">SUBMIT</button>
+                                            <button id="make_button" class="btn btn-primary card-1">SUBMIT &nbsp <span class="lodingLogin"> <img src="/images/comment-ajax.gif"  /></span></button></button>
                                         </div>
                                     </div>
                                 </form>
@@ -166,32 +166,28 @@
                             <div class="card card-body card-padding" style="padding:1em; ">
                                 <h5 class="card-title">ADD MODEL</h5>
 
-                                <form>
+                                <form id="model_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="make">Select category</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <select name="category_third" onchange="selectCategory(this.value)" id="allCategorymodel" class="form-control">
+                                                
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="make">Select make</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <select name="make_third" id="allMake" class="form-control">
+                                                <option>Select category</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <div class="form-group">
                                                 <label for="make">Model Name</label>
-                                                <input type="text" name="model" class="form-control" id="model" placeholder="Model name">
+                                                <input type="text" name="model" class="form-control" id="model_forth" placeholder="Model name">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                                <button type="submit" class="btn btn-primary card-1">SUBMIT</button>
+                                                <button id="model_button" class="btn btn-primary card-1">SUBMIT &nbsp <span class="lodingLogin"> <img src="/images/comment-ajax.gif"  /></span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -205,40 +201,34 @@
                             <div class="card card-body card-padding1" style="padding:1em; ">
                                 <h5 class="card-title">ADD YEAR</h5>
                                 
-                                <form>
+                                <form id="year_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
                                             <label for="make">Select category</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <select onchange="selectCategoryyear(this.value)" id="allCategoryear" class="form-control">
+                                        
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="make">Select make</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <select onchange="selectMakeyear(this.value)" id="allMakeyear" class="form-control">
+                                                <option>Select category</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select model</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <label for="model">Select model</label>
+                                            <select name="model_forth" id="allMadeyear" class="form-control">
+                                                <option>Select make</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <div class="form-group">
                                                 <label for="year">Year Name</label>
-                                                <input type="text" name="year" class="form-control" id="year" placeholder="Year name">
+                                                <input type="text" name="year" class="form-control" id="year_forth" placeholder="Year name">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <button type="submit" class="btn btn-primary card-1">SUBMIT</button>
+                                            <button id="year_button" class="btn btn-primary card-1">SUBMIT &nbsp <span class="lodingLogin"> <img src="/images/comment-ajax.gif"  /></span></button>
                                         </div>
                                     </div>
                                 </form>
@@ -252,48 +242,40 @@
                             <div class="card card-body card-padding1" style="padding:1em; ">
                                 <h5 class="card-title">ADD TRIM</h5>
 
-                                <form>
+                                <form id="trim_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select category</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <label for="category">Select category</label>
+                                            <select onchange="selectCategorytrim(this.value)" id="allCategortrim" class="form-control">
+
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="make">Select make</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <select onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control">
+                                                <option>Select category</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select model</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <label for="model">Select model</label>
+                                            <select onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control">
+                                                <option>Select make</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select year</label>
-                                            <select class="form-control">
-                                                <option>Large select</option>
-                                                <option>Large select</option>
-                                                <option>Large select</option>
+                                            <label for="year">Select year</label>
+                                            <select name="year_forth" id="allModeltrim" class="form-control">
+                                                <option>Select model</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <div class="form-group">
                                                 <label for="trim">Trim Name</label>
-                                                <input type="text" name="trim" class="form-control" id="trim" placeholder="Trim name">
+                                                <input type="text" name="trim" class="form-control" id="trim_forth" placeholder="Trim name">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
-                                            <button type="submit" class="btn btn-primary card-1">SUBMIT</button>
+                                            <button id="trim_button" class="btn btn-primary card-1">SUBMIT &nbsp <span class="lodingLogin"> <img src="/images/comment-ajax.gif"  /></span></button>
                                         </div>
                                     </div>
                                 </form>

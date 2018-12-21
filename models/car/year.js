@@ -6,9 +6,12 @@ var yearSchema = mongoose.Schema({
     [
         {
            type: mongoose.Schema.Types.ObjectId,
-           ref: "Value"
+           ref: "Trim"
         }
     ]
+},
+{
+    usePushEach: true 
 });
 
 module.exports = mongoose.model("Year", yearSchema);
