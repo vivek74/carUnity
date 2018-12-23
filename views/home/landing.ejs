@@ -8,7 +8,7 @@
                             <div id="colorlib-logo"><a href="index.html">Store</a></div>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
-                            <ul>
+                            <ul class="captial">
                                 <%if(currentUser){%>
                                     <li><a href="/admin/view_all_cars">Admin</a></li>
                                 <%}%>
@@ -78,7 +78,7 @@
                                     <h2 class="head-2">Arrival</h2>
                                     <h2 class="head-3">up to 30% off</h2>
                                     <p class="category"><span>New stylish shirts, pants &amp; Accessories</span></p>
-                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+                                    <p><a href="#" class="btn btn-primary">Cars Collection</a></p>
                                 </div>
                             </div>
                         </div>
@@ -100,14 +100,14 @@
         </div>
         <div class="row">
 
-            <% data.reverse().forEach(function(cars){ %>
+            <% data.forEach(function(cars){ %>
                 <div class="col-md-3 text-center">
                     <div class="product-entry">
                         <div class="product-img" style="background-image: url(<%=cars.carImage1%>);">
                             <p class="tag"><span class="new">New</span></p>
                             <div class="cart">
                                 <p>
-                                    <span><a href="#"><i class="icon-eye"></i></a></span> 
+                                    <span><a href="/view_details/<%=cars.id%>"><i class="icon-eye"></i></a></span> 
                                 </p>
                             </div>
                         </div>

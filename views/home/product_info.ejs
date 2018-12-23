@@ -1,0 +1,206 @@
+<% include ../partials/header %>
+<div id="page">
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div id="colorlib-logo"><a href="/">Store</a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul class="captial">
+                                <%if(currentUser){%>
+                                    <li><a href="/admin/view_all_cars">Admin</a></li>
+                                <%}%>
+                                <li ><a href="/">Home</a></li>
+                                <li class="active"><a href="/buy-cars">Buy Cars</a></li>
+                                <li><a href="/sell-cars">Sell Cars</a></li>
+                                <li><a href="/contact-us">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li><a href="/index/logout">Logout</a></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </nav>
+
+    <aside id="colorlib-hero" class="breadcrumbs">
+	    <div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(/images/cover-img-1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Product Detail</h1>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+	</aside>
+
+	<div class="colorlib-shop">
+		<div class="container">
+			<div class="row row-pb-lg">
+				<div class="col-md-10 col-md-offset-1 card-2" style="padding:2em;">
+					<div class="product-detail-wrap">
+						<div class="row">
+							<div class="col-md-5 ">
+								<div class="product-entry card-2">
+									<div class="product-img" style="background-image: url(<%=data.carImage1%>);">
+											
+									</div>
+									<div class="thumb-nail card-2">
+										<a class="thumb-img zoom" style="background-image: url(<%=data.carImage2%>);background-size: cover;"></a>
+										<a class="thumb-img zoom" style="background-image: url(<%=data.carImage3%>);background-size: cover;"></a>
+										<a class="thumb-img zoom" style="background-image: url(<%=data.carImage4%>);background-size: cover;"></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="desc">
+									<h3><%=data.model%></h3>
+									<p class="price">
+										<span>Rs.<%=data.price%></span> 		
+									</p>
+
+                                    <div class="card card-2">
+                                        <table class="table table-borderless">
+                                            <tbody>
+                                              <tr>
+                                                <th scope="row">Catergory</th>
+                                                <td><%=data.catergory%></td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Make</th>
+                                                <td><%=data.make%></td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Model</th>
+                                                <td><%=data.model%></td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Year</th>
+                                                <td><%=data.year%></td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Trim</th>
+                                                <td><%=data.trim%></td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Kilometers Driven</th>
+                                                <td><%=data.kilometersDriven%> KM</td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Vehicle RegNo</th>
+                                                <td><%=data.vehicleRegNo%></td>
+                                              </tr>
+                                            </tbody>
+                                    </table>
+                                    </div>
+                                    
+									<p style="margin-top:2em;"><a href="/contact-seller/<%=data.id%>" class="btn btn-primary btn-addtocart"> Contact Seller</a></p>
+								</div>
+							</div>
+				        </div>
+			        </div>
+		        </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                        <div class="col-md-12 tabulation">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a data-toggle="tab" href="#description">Description</a></li>
+                            </ul>
+                            <div class="tab-content">
+                                <div id="description" class="tab-pane fade in active">
+                                    <div class="card card-2">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">Catergory</th>
+                                                    <td><%=data.catergory%></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Make</th>
+                                                    <td><%=data.make%></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Model</th>
+                                                    <td><%=data.model%></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Year</th>
+                                                    <td><%=data.year%></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Trim</th>
+                                                    <td><%=data.trim%></td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Kilometers Driven</th>
+                                                    <td><%=data.kilometersDriven%> KM</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th scope="row">Vehicle RegNo</th>
+                                                <td><%=data.vehicleRegNo%></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="colorlib-shop" style="margin-top:5em;">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-md-offset-3 text-center colorlib-heading">
+                            <h2><span>Similar Products</span></h2>
+                            <p>We love to tell our successful far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <% make_data.forEach(function(cars){ %>
+                            <div class="col-md-3 text-center">
+                                <div class="product-entry">
+                                    <div class="product-img" style="background-image: url(<%=cars.carImage1%>);">
+                                        <p class="tag"><span class="new">New</span></p>
+                                        <div class="cart">
+                                            <p>
+                                                <span><a href="/view_details/<%=cars.id%>"><i class="icon-eye"></i></a></span> 
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="desc">
+                                        <h3><a><%=cars.model%></a></h3>
+                                        <p class="price"><span>Rs <%=cars.price%></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        <%});%>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+
+    
+
+
+<% include ../partials/footer %>

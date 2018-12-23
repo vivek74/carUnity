@@ -428,7 +428,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .colorlib-blog,
 #colorlib-subscribe,
 #colorlib-footer {
-  padding-bottom: 9em;
+  padding-bottom: 2em;
   clear: both; }
 
 .colorlib-shop .icon {
@@ -1482,7 +1482,7 @@ h1, h2, h3, h4, h5, h6, figure {
 .amenities-img,
 .blog-img,
 .hotel-img {
-  background-size: cover;
+  /* background-size: cover; */
   background-position: center center;
   background-repeat: no-repeat;
   position: relative; }
