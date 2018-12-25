@@ -8,10 +8,13 @@ var Make = require("../models/car/make");
 var Model = require("../models/car/model");
 var Trim = require("../models/car/trim");
 var Year = require("../models/car/year");
+var Testimonial = require("../models/testimonial");
 
 var moment = require('moment-timezone');
 var multer=require('multer');
 var path= require('path');
+
+var middleware = require("../middleware");
 
 var storage=multer.diskStorage({
 	destination: './public/uploads/',
@@ -43,7 +46,7 @@ function checkFileType(file,cb){
 }
 
 
-router.get("/add_cars", function(req,res){
+router.get("/add_cars",middleware.isLoggedIn, function(req,res){
     res.render('../views/admin/addcars.ejs');
 });
 
@@ -98,7 +101,7 @@ router.post("/add_new_car", function(req,res){
 });
 
 //edit car details
-router.post("/edit_car_details/:carId", function(req,res){
+router.post("/edit_car_details/:carId",middleware.isLoggedIn, function(req,res){
     upload(req, res, (err) =>{
         if(err){
             console.log(err);
@@ -145,7 +148,7 @@ router.post("/edit_car_details/:carId", function(req,res){
 });
 
 //view all cars
-router.get("/view_all_cars", function(req,res){
+router.get("/view_all_cars", middleware.isLoggedIn,function(req,res){
     Car.find({}, function(err,data){
         if(err){
             res.send(err)
@@ -157,17 +160,57 @@ router.get("/view_all_cars", function(req,res){
 
 
 //queries
-router.get("/queries", function(req,res){
+router.get("/queries",middleware.isLoggedIn, function(req,res){
     res.render('../views/admin/queries')
 });
 
-//queries
-router.get("/manage-testimonial", function(req,res){
+//testimonial
+router.get("/manage-testimonial",middleware.isLoggedIn, function(req,res){
     res.render('../views/admin/testimonial')
 });
 
+//create testimonial
+router.post("/testimonial-create",middleware.isLoggedIn, function(req,res){
+    var newTestimonial = new Testimonial({
+        firstName: req.body.firstname,
+        lastName:req.body.lastname,
+        emailId:req.body.emailid,
+        text:req.body.blog
+    });
+    Testimonial.create(newTestimonial, function(err, data){
+        if(err){
+            res.send(err);
+        }else{
+            res.end();
+        }
+    });
+});
+
+//show testimonial
+router.get("/show-testimonial",middleware.isLoggedIn, function(req,res){
+    Testimonial.find({}, function(err, data){
+        if(err){
+            res.send(err);
+        }else{
+            res.send({data});
+        }
+    });
+});
+
+//remove testimonial
+router.get("/remove-testimonial/:id",middleware.isLoggedIn, function(req,res){
+    Testimonial.findByIdAndRemove(req.params.id, function(err, data){
+        if(err){
+            res.send(err);
+        }else{
+            res.end();
+        }
+    });
+})
+
+
 //more details
-router.get("/product_details/:id", function(req,res){
+router.get("/product_details/:id",middleware.isLoggedIn, function(req,res){
     Car.findById(req.params.id, function(err,data){
         if(err){
             res.send(err)
@@ -175,15 +218,16 @@ router.get("/product_details/:id", function(req,res){
             res.render('../views/admin/product_detail',{data:data});
         }
     })
-    
 });
 
+
+
 //manage category
-router.get("/manage-category", function(req,res){
+router.get("/manage-category",middleware.isLoggedIn, function(req,res){
     res.render('../views/admin/category.ejs');
 });
 //add category
-router.post("/create-category", function(req,res){
+router.post("/create-category",middleware.isLoggedIn, function(req,res){
     Category.create({text:req.body.new}, function(err,data){
         if(err){
             console.log(err);
@@ -195,7 +239,7 @@ router.post("/create-category", function(req,res){
 });
 
 //add make
-router.post("/create-make", function(req,res){
+router.post("/create-make",middleware.isLoggedIn, function(req,res){
     Category.find({text:req.body.new.category}, function(err,data){
         if(err){
             console.log(err);
@@ -215,7 +259,7 @@ router.post("/create-make", function(req,res){
 });
 
 //add model
-router.post("/create-model", function(req,res){
+router.post("/create-model",middleware.isLoggedIn, function(req,res){
     //console.log(req.body);
     Make.find({text:req.body.new.make}, function(err,data){
         if(err){
@@ -236,7 +280,7 @@ router.post("/create-model", function(req,res){
 });
 
 //add year
-router.post("/create-year", function(req,res){
+router.post("/create-year",middleware.isLoggedIn, function(req,res){
     //console.log(req.body);
     Model.find({text:req.body.new.model}, function(err,data){
         if(err){
@@ -257,7 +301,7 @@ router.post("/create-year", function(req,res){
 });
 
 //add trim
-router.post("/create-trim", function(req,res){
+router.post("/create-trim",middleware.isLoggedIn, function(req,res){
     Year.find({text:req.body.new.year}, function(err,data){
         if(err){
             console.log(err);

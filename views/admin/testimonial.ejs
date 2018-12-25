@@ -8,7 +8,7 @@
                             <div id="colorlib-logo"><a href="/">Store</a></div>
                         </div>
                         <div class="col-xs-10 text-right menu-1">
-                            <ul class="capital>
+                            <ul class="captial">
                                 <%if(currentUser){%>
                                     <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
                                 <%}%>
@@ -59,7 +59,7 @@
 
                     <div class="row">
 
-                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
+                        <div id="testimonial_button" style="margin-top:1em;" class="col-md-6 col-sm-6 col-xm-2 pointer">
                             <div class="card card-1" >
                                 <div class="card-body" data-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category" style="padding:1em; text-align: center; background-color: #FFC300; font-weight: bold; color: white;">
                                   VIEW ALL
@@ -67,18 +67,10 @@
                             </div>
                         </div>
 
-                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
+                        <div style="margin-top:1em;" class="col-md-6 col-sm-6 col-xm-2 pointer">
                             <div class="card card-1">
                                 <div id="retrieve-btn-make" class="card-body" data-toggle="collapse" href="#make" role="button" aria-expanded="false" aria-controls="make" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
                                   ADD NEW
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
-                            <div class="card card-1">
-                                <div id="retrieve-btn-model" class="card-body" data-toggle="collapse" href="#model" role="button" aria-expanded="false" aria-controls="model" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
-                                  MANAGE
                                 </div>
                             </div>
                         </div>
@@ -95,21 +87,55 @@
 
                     <div class="card card-2">
                         <div class="collapse" id="category">
-                            <div class="card card-body card-padding" style="padding:1em;">
+                            <div class="card card-body" style="padding:1em;">
                                 <h5 class="card-title">VIEW ALL</h5>
-
-                                
-                                
+                                <div id="showing_testimonial">
+                                    <div style="display: flex; justify-content: center;">
+                                        <img src="/images/loader.gif"  />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="card card-2" style="margin-top:1em;">
                         <div class="collapse" id="make">
-                            <div class="card card-body card-padding" style="padding:1em; ">
+                            <div class="card card-body" style="padding:1em; ">
                                 <h5 class="card-title">ADD NEW</h5>
 
-                                
+                                <form id="testimoniyal_form">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <div class="form-group">
+                                                <label for="fristname">First name</label>
+                                                <input type="text" name="firstName" class="form-control testimonnial_input" id="firstNameT" placeholder="Fristname">
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <div class="form-group">
+                                                <label for="lastname">Last name</label>
+                                                <input type="text" name="lastName" class="form-control testimonnial_input" id="lastNameT" placeholder="Lastname">
+                                            </div>
+                                        </div>
+                                    </div>
+            
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="email">Email</label>
+                                            <input type="text" name="emailId" class="form-control testimonnial_input" id="emailT" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="blogT">Blog</label>
+                                            <textarea name="blog" class="form-control" id="blogT" rows="3"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <button id="testimonial" class="btn btn-primary card-1">SUBMIT &nbsp <span class="lodingLogin"> <img src="/images/comment-ajax.gif"  /></span></button>
+                                </form>
 
 
                             </div>
@@ -134,8 +160,5 @@
         </div>
     </div>
 
-    <script>
-
-    </script>
 
 <% include ./partials/footer %>

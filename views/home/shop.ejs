@@ -1,0 +1,203 @@
+<% include ../partials/header %>
+	<div id="page">
+		<nav class="colorlib-nav" role="navigation">
+			<div class="top-menu">
+				<div class="container">
+					<div class="row">
+						<div class="col-xs-2">
+							<div id="colorlib-logo"><a href="index.html">Store</a></div>
+						</div>
+						<div class="col-xs-10 text-right menu-1">
+							<ul>
+								<%if(currentUser){%>
+									<li><a href="/admin/view_all_cars">ADMIN</a></li>
+								<%}%>
+								<li ><a href="/">HOME</a></li>
+								<li class="active"><a href="/buy-cars">BUY CARS</a></li>
+								<li ><a href="/sell-cars">SELL CARS</a></li>
+								<li><a href="/contact-us">GET IN TOUCH</a></li>
+								<%if(currentUser){%>
+									<li><a href="/index/logout">LOGOUT</a></li>
+								<%}%>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<aside id="colorlib-hero" class="breadcrumbs">
+			<div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(images/cover-img-1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Products</h1>
+				   					<h2 class="bread"><span><a href="index.html">Home</a></span> <span>Shop</span></h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+
+		<div class="colorlib-shop">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-push-2">
+						<div style="display: flex; justify-content: center;">
+                                <img class="loader-card" src="/images/loader.gif"  />
+                        </div>
+						<div id="getCars" class="row row-pb-lg">
+
+							
+
+						</div>
+					</div>
+					<div class="col-md-2 col-md-pull-10">
+						<div class="sidebar">
+							<div class="side">
+								<h2>Categories</h2>
+								<div class="fancy-collapse-panel">
+			                  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+								<form method="post" class="colorlib-form-2">
+			                     <div class="panel panel-default">
+									
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="guests">Select category:</label>
+												<div class="form-field">
+													<i class="icon icon-arrow-down3"></i>
+													<select name="catergory" onchange="selectCategorytrim(this.value);getModified(this.value,'','','','')" id="allCategortrimAdd" class="form-control">
+
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+
+			                     </div>
+			                     <div class="panel panel-default">
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="guests">Select make:</label>
+												<div class="form-field">
+													<i class="icon icon-arrow-down3"></i>
+													<select name="make" onchange="selectMaketrim(this.value);getModified('', this.value,'','','')" id="allMaketrim" class="form-control">
+
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+			                         
+			                     </div>
+			                     <div class="panel panel-default">
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="guests">Select model:</label>
+												<div class="form-field">
+													<i class="icon icon-arrow-down3"></i>
+													<select name="model" onchange="selectModeltrim(this.value);getModified('','', this.value,'','')" id="allMadetrim" class="form-control">
+
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+			                         
+			                     </div>
+			                     <div class="panel panel-default">
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="guests">Select year:</label>
+												<div class="form-field">
+													<i class="icon icon-arrow-down3"></i>
+													<select onchange="selectYeartrim(this.value);getModified('','','',this.value,'')" name="year" id="allModeltrim" class="form-control">
+
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+			                         
+								 </div>
+
+								 <div class="panel panel-default">
+
+									<div class="row">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label for="guests">Select trim:</label>
+												<div class="form-field">
+													<i class="icon icon-arrow-down3"></i>
+													<select onchange="getModified('','','','',this.value)" name="trim" id="allYeartrim" class="form-control">
+
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+			                         
+								 </div>
+								 
+								</form>
+			                  </div>
+			               </div>
+							</div>
+							<!-- <div class="side">
+								<h2>Price Range</h2>
+								<form method="post" class="colorlib-form-2">
+				              	<div class="row">
+				                <div class="col-md-12">
+				                  <div class="form-group">
+				                    <label for="guests">Price from:</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-arrow-down3"></i>
+				                      <select name="people" id="people" class="form-control">
+				                        <option value="#">1</option>
+				                        <option value="#">200</option>
+				                        <option value="#">300</option>
+				                        <option value="#">400</option>
+				                        <option value="#">1000</option>
+				                      </select>
+				                    </div>
+				                  </div>
+				                </div>
+				                <div class="col-md-12">
+				                  <div class="form-group">
+				                    <label for="guests">Price to:</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-arrow-down3"></i>
+				                      <select name="people" id="people" class="form-control">
+				                        <option value="#">2000</option>
+				                        <option value="#">4000</option>
+				                        <option value="#">6000</option>
+				                        <option value="#">8000</option>
+				                        <option value="#">10000</option>
+				                      </select>
+				                    </div>
+				                  </div>
+				                </div>
+				              </div>
+				            </form>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        <% include ../partials/footer %>
+

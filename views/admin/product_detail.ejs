@@ -115,13 +115,13 @@
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="fristname">First name</label>
-                                    <input type="text" name="firstName" class="form-control" id="fristname" value="<%=data.firstName%>">
+                                    <input type="text" name="firstName" class="form-control" id="fristname" value="<%=data.firstName%>" required>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="lastname">Last name</label>
-                                    <input type="text" name="lastName" class="form-control" id="lastname" value="<%=data.lastName%>">
+                                    <input type="text" name="lastName" class="form-control" id="lastname" value="<%=data.lastName%>" required>
                                 </div>
                             </div>
                         </div>
@@ -130,13 +130,13 @@
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="text" name="emailId" class="form-control" id="email" value="<%=data.emailId%>">
+                                    <input type="text" name="emailId" class="form-control" id="email" value="<%=data.emailId%>" required>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="phone">Phone number</label>
-                                    <input type="number" name="phoneNo" class="form-control" id="phone" value="<%=data.phoneNo%>">
+                                    <input type="number" name="phoneNo" class="form-control" id="phone" value="<%=data.phoneNo%>" required>
                                 </div>
                             </div>
                         </div>
@@ -144,14 +144,18 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="catergory">Catergory</label>
-                                    <input type="text" name="catergory" class="form-control" id="catergory" value="<%=data.catergory%>">
+                                    <label for="category">Select category</label>
+                                    <select name="catergory" onchange="selectCategorytrim(this.value)" id="allCategortrimAdd" class="form-control" required>
+
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="make">Make</label>
-                                    <input type="text" name="make" class="form-control" id="make" value="<%=data.make%>">
+                                    <label for="make">Select make</label>
+                                    <select name="make" onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control" required>
+                                        <option>Select category</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -159,14 +163,18 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="model">Model</label>
-                                    <input type="text" name="model" class="form-control" id="model" value="<%=data.model%>">
+                                    <label for="model">Select model</label>
+                                    <select name="model" onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control" required>
+                                        <option>Select make</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="year">Year</label>
-                                    <input type="text" name="year" class="form-control" id="year" value="<%=data.year%>">
+                                    <label for="year">Select year</label>
+                                    <select onchange="selectYeartrim(this.value)" name="year" id="allModeltrim" class="form-control" required>
+                                        <option>Select model</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -174,14 +182,16 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="trim">Trim</label>
-                                    <input type="text" name="trim" class="form-control" id="trim" value="<%=data.trim%>">
+                                    <label for="trim">Select trim</label>
+                                    <select name="trim" id="allYeartrim" class="form-control" required>
+                                        <option>Select year</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="pincode">Pincode</label>
-                                    <input type="number" name="pincode" class="form-control" id="pincode" value="<%=data.pincode%>">
+                                    <input type="number" name="pincode" class="form-control" id="pincode" value="<%=data.pincode%>" required>
                                 </div>
                             </div>
                         </div>
@@ -190,13 +200,13 @@
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="kilometersDriven">Kilometers Driven</label>
-                                    <input type="text" name="kilometersDriven" class="form-control" id="kilometersDriven" value="<%=data.kilometersDriven%>">
+                                    <input type="text" name="kilometersDriven" class="form-control" id="kilometersDriven" value="<%=data.kilometersDriven%>" required>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="vehicleRegNo">Vehicle RegNo</label>
-                                    <input type="text" name="vehicleRegNo" class="form-control" id="vehicleRegNo" value="<%=data.vehicleRegNo%>">
+                                    <input type="text" name="vehicleRegNo" class="form-control" id="vehicleRegNo" value="<%=data.vehicleRegNo%>" required>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +221,7 @@
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="price">Price</label>
-                                    <input type="text" name="price" class="form-control" id="price" value="<%=data.price%>">
+                                    <input type="text" name="price" class="form-control" id="price" value="<%=data.price%>" required>
                                 </div>
                             </div>
                         </div>
