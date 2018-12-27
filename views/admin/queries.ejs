@@ -27,23 +27,23 @@
     </nav>
     
 
-    <div class="container top" style="margin-bottom:3em;">
+    <div class="container top" style="margin-bottom:3em; ">
         <div class="col-lg-4 col-md-4 col-12">
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
-                    <div onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                    <div  onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
                         <p style="font-weight:bold; text-align: center;">ADD NEW CARS</p>
                     </div>
             
-                    <div onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
-                        <p style="font-weight:bold;text-align: center;">VIEW UPLOADED PRODUCTS</p>
+                    <div style="font-weight: bold; text-align: center;" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                        <p>VIEW UPLOADED PRODUCTS</p>
                     </div>
                             
-                    <div style="font-weight: bold; text-align: center; color:#FFC300;background-color: #fafafa" onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
+                    <div style="font-weight: bold; color:#FFC300;background-color: #fafafa;" onclick="window.location.href = '/admin/queries'" class="alert alert-primary card-1 pointer">
                         <p style="font-weight:bold;text-align: center;">MANAGE QUERIES</p>
                     </div>
 
-                    <div onclick="window.location.href = '/admin/manage-testimonial'" class="alert alert-primary card-1 pointer">
+                    <div  onclick="window.location.href = '/admin/manage-testimonial'" class="alert alert-primary card-1 pointer">
                         <p style="font-weight:bold;text-align: center;">MANAGE TESTIMONIAL</p>
                     </div>
 
@@ -56,9 +56,94 @@
         <div class="col-lg-8 col-md-8 col-12">
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
-                    <img src="/uploads/NotAvailable.png" class="img-thumbnail" alt="Responsive image">
+
+                    <div class="row">
+
+                        <div id="querie_button" style="margin-top:1em;" class="col-md-6 col-sm-6 col-xm-2 pointer">
+                            <div class="card card-1" >
+                                <div class="card-body" data-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category" style="padding:1em; text-align: center; background-color: #FFC300; font-weight: bold; color: white;">
+                                  VIEW ALL
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:1em;" class="col-md-6 col-sm-6 col-xm-2 pointer">
+                            <div class="card card-1">
+                                <div id="retrieve-btn-make" class="card-body" data-toggle="collapse" href="#make" role="button" aria-expanded="false" aria-controls="make" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                  ADD NEW
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    
+
+                </div>
+            </div>
+            <div class="card card-2">
+                <div style="margin:0;" class="card-body" style="padding:1em;">
+                    
+
+                    <div class="card card-2">
+                        <div class="collapse" id="category">
+                            <div class="card card-body" style="padding:1em;">
+                                <h5 class="card-title">VIEW ALL</h5>
+                                <div style="display: flex; justify-content: center;">
+                                    <img class="loader-card" src="/images/loader.gif"  />
+                                </div>
+                                <div id="showing_querie">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-2" style="margin-top:1em;">
+                        <div class="collapse" id="make">
+                            <div class="card card-body" style="padding:1em; ">
+                                <h5 class="card-title">ADD NEW</h5>
+
+                                <form id="querie_form">
+            
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="question">Question</label>
+                                            <input type="text" name="question" class="form-control testimonnial_input" id="questionQ" placeholder="Question">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="answer">Answer</label>
+                                            <input type="text" name="answer" class="form-control testimonnial_input" id="answerQ" placeholder="Answer">
+                                        </div>
+                                    </div>
+
+                                    <button id="queries_button" class="btn btn-primary card-1">SUBMIT &nbsp <span class="lodingLogin"> <img src="/images/comment-ajax.gif"  /></span></button>
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-2" style="margin-top:1em;">
+                        <div class="collapse" id="model">
+                            <div class="card card-body card-padding" style="padding:1em; ">
+                                <h5 class="card-title">MANAGE</h5>
+
+                                
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
+
 <% include ./partials/footer %>

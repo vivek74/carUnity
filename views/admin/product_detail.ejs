@@ -87,8 +87,14 @@
                                     <p style="font-weight:bold;margin:0;">Trim : <%=data.trim%></p>
                                     <p style="font-weight:bold;margin:0;">Kilometers Driven : <%=data.kilometersDriven%> KM</p>
                                     <p style="font-weight:bold;margin:0;">Vehicle RegNo : <%=data.vehicleRegNo%></p>
-
-									<p style="margin-top:2em;"><a class="btn btn-primary btn-addtocart" data-toggle="modal" data-target=".bd-example-modal-lg"> Edit Details</a></p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p style="margin-top:1em;"><a class="btn btn-primary btn-addtocart" data-toggle="modal" data-target=".bd-example-modal-lg"> Edit Details</a></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <p style="margin-top:1em;"><a href="/admin/delete-car/<%=data.id%>" class="btn btn-primary btn-addtocart"> Delete</a></p>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 				        </div>

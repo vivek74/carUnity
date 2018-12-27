@@ -405,8 +405,6 @@ $(document).ready(function(){
 });
 
 //get modified detail
-
-
 function getModified(category, make, model, year, trim){
 	if(category){
 		$('.loader-card').css("display", "inline");
@@ -469,8 +467,81 @@ function getModified(category, make, model, year, trim){
 			$('#getCars').html(html);
 		});
 	}
-	
 }
 
+//querry
+$(document).ready(function(){
+	$("#queries_button").on('click',function(event) 
+	{	
+		event.preventDefault();
+		event.stopPropagation();
+		var data={"question":$("#questionQ").val(),"answer":$("#answerQ").val()};
+		$.ajax({
+			beforeSend: function(){
+				$('.lodingLogin').css("display", "inline");
+			},
+			url:"/admin/new-queries",
+			type:"POST",
+			contentType:"application/json",
+			data:JSON.stringify(data)
+		}).done(function(result){
+			removeQuerie("questionQ", "answerQ");
+			$('.lodingLogin').css("display", "none");
+		})
+		.fail(function(err)
+		{
+			alert(err);
+		});
+	});
+});
 
+//clear textbox querie
+var removeQuerie = function(input1, input2){
+	var removeThis1 = document.getElementById(input1);
+	removeThis1.value = "";
+	var removeThis2 = document.getElementById(input2);
+	removeThis2.value = "";
+};
 
+//retrive query
+$(document).ready(function(){
+	$("#querie_button").on('click',function(event) {
+		$('.loader-card').css("display", "inline");	
+        $.get(
+            "/admin/get-querries"
+        ).done(data => {
+			$('.loader-card').css("display", "none");
+			let html = '';
+			var i=0; data.data.forEach(function(allQuerie){
+				html += '<div id="delDivQ'+i+'" class="card card-2" style="padding:1em; margin-top:1em; background-color: #fafafa;"><h5 style="margin:0;">Q1 - '+ allQuerie.question +'</h5><p style="margin:0;">Ans - '+ allQuerie.answer +'</p> <button type="button" class="btn btn-warning btn-sm" style="padding:4px;font-size:12px;" onclick="deleteQ('+i+' , \'' + allQuerie._id +'\')">Delete </button></div>';
+				i++; });
+				
+			$('#showing_querie').html(html);
+        });
+    });
+});
+
+//delete div by jquary
+function deleteQ(data,id) {
+	$('#delDivQ'+ data).click(function () {
+		$(this).hide(500, function () {
+			$(this).remove();
+		});
+	});
+	$.get(
+		"/admin/delete-querries/"+id
+	)
+}
+
+//queir for user
+$.get(
+	"/admin/get-querries"
+).done(data => {
+
+	let html = '';
+	var i=0; data.data.forEach(function(allQuerie){
+		html += '<p style="font-weight:bold;margin:0;">Q1. '+allQuerie.question+'</p><p>Ans. '+allQuerie.answer+'</p>';
+		i++; });
+		
+	$('#showing_querie_user').html(html);
+});

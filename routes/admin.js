@@ -9,6 +9,7 @@ var Model = require("../models/car/model");
 var Trim = require("../models/car/trim");
 var Year = require("../models/car/year");
 var Testimonial = require("../models/testimonial");
+var Querie =require("../models/querie");
 
 var moment = require('moment-timezone');
 var multer=require('multer');
@@ -158,10 +159,58 @@ router.get("/view_all_cars", middleware.isLoggedIn,function(req,res){
     })
 });
 
+//delete car
+router.get("/delete-car/:id", middleware.isLoggedIn, function(req,res){
+    Car.findByIdAndRemove(req.params.id, function(err,data){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/admin/view_all_cars");
+        }
+    })
+});
+
 
 //queries
 router.get("/queries",middleware.isLoggedIn, function(req,res){
     res.render('../views/admin/queries')
+});
+
+//get queries
+router.get("/get-querries",middleware.isLoggedIn, function(req,res){
+    Querie.find({}, function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            res.send({data});
+        }
+    });
+});
+
+//create new queries
+router.post("/new-queries",middleware.isLoggedIn, function(req,res){
+    var newQuerie = new Querie ({
+        question: req.body.question,
+        answer: req.body.answer
+    });
+    Querie.create(newQuerie, function(err, data){
+        if(err){
+            res.send(err);
+        }else{
+            res.end();
+        }
+    });
+});
+
+//delete queries
+router.get("/delete-querries/:id",middleware.isLoggedIn, function(req,res){
+    Querie.findByIdAndRemove(req.params.id, function(err,data){
+        if(err){
+            console.log(err);
+        }else{
+            res.end();
+        }
+    });
 });
 
 //testimonial
