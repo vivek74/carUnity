@@ -28,7 +28,7 @@ var storage=multer.diskStorage({
 var upload=multer({storage: storage,fileFilter: function(req, file,cb){
 		checkFileType(file,cb);
 	}
-}).array('myImage',4);
+}).array('myImage',10);
 
 //check file type
 function checkFileType(file,cb){
@@ -46,7 +46,6 @@ function checkFileType(file,cb){
 	}
 }
 
-
 router.get("/add_cars",middleware.isLoggedIn, function(req,res){
     res.render('../views/admin/addcars.ejs');
 });
@@ -61,16 +60,15 @@ router.post("/add_new_car", function(req,res){
             res.redirect("back");
         } else{
             var newCar = new Car({
-                firstName: req.body.firstName,
-                lastName:req.body.lastName,
-                emailId:req.body.emailId,
-                phoneNo:req.body.phoneNo,
+                owner: req.body.owner,
+                location1:req.body.location1,
+                location2:req.body.location2,
+                location3:req.body.location3,
                 catergory:req.body.catergory,
                 make:req.body.make,
                 model:req.body.model,
                 year:req.body.year,
                 trim:req.body.trim,
-                pincode:req.body.pincode,
                 kilometersDriven:req.body.kilometersDriven,
                 vehicleRegNo:req.body.vehicleRegNo,
                 price:req.body.price
@@ -87,6 +85,24 @@ router.post("/add_new_car", function(req,res){
             }
             if(req.files[3] != undefined){
                 newCar.carImage4 = "/uploads/"+req.files[3].filename;
+            }
+            if(req.files[4] != undefined){
+                newCar.carImage5 = "/uploads/"+req.files[4].filename;
+            }
+            if(req.files[5] != undefined){
+                newCar.carImage6 = "/uploads/"+req.files[5].filename;
+            }
+            if(req.files[6] != undefined){
+                newCar.carImage7 = "/uploads/"+req.files[6].filename;
+            }
+            if(req.files[7] != undefined){
+                newCar.carImage8 = "/uploads/"+req.files[7].filename;
+            }
+            if(req.files[8] != undefined){
+                newCar.carImage9 = "/uploads/"+req.files[8].filename;
+            }
+            if(req.files[9] != undefined){
+                newCar.carImage10 = "/uploads/"+req.files[9].filename;
             }
 
             Car.create(newCar, function(err, data){
@@ -110,16 +126,15 @@ router.post("/edit_car_details/:carId",middleware.isLoggedIn, function(req,res){
             res.redirect("back");
         } else{
             var newData = {
-                firstName: req.body.firstName,
-                lastName:req.body.lastName,
-                emailId:req.body.emailId,
-                phoneNo:req.body.phoneNo,
+                location1:req.body.location1,
+                location2:req.body.location2,
+                location3:req.body.location3,
+                owner: req.body.owner,
                 catergory:req.body.catergory,
                 make:req.body.make,
                 model:req.body.model,
                 year:req.body.year,
                 trim:req.body.trim,
-                pincode:req.body.pincode,
                 kilometersDriven:req.body.kilometersDriven,
                 vehicleRegNo:req.body.vehicleRegNo,
                 price:req.body.price
@@ -137,6 +152,25 @@ router.post("/edit_car_details/:carId",middleware.isLoggedIn, function(req,res){
             if(req.files[3] != undefined){
                 newData.carImage4 = "/uploads/"+req.files[3].filename;
             }
+            if(req.files[4] != undefined){
+                newCar.carImage5 = "/uploads/"+req.files[4].filename;
+            }
+            if(req.files[5] != undefined){
+                newCar.carImage6 = "/uploads/"+req.files[5].filename;
+            }
+            if(req.files[6] != undefined){
+                newCar.carImage7 = "/uploads/"+req.files[6].filename;
+            }
+            if(req.files[7] != undefined){
+                newCar.carImage8 = "/uploads/"+req.files[7].filename;
+            }
+            if(req.files[8] != undefined){
+                newCar.carImage9 = "/uploads/"+req.files[8].filename;
+            }
+            if(req.files[9] != undefined){
+                newCar.carImage10 = "/uploads/"+req.files[9].filename;
+            }
+            
             Car.findByIdAndUpdate(req.params.carId, {$set: newData}, function(err, data){
             if(err){
                 res.send(err);
@@ -190,8 +224,10 @@ router.get("/get-querries",middleware.isLoggedIn, function(req,res){
 //create new queries
 router.post("/new-queries",middleware.isLoggedIn, function(req,res){
     var newQuerie = new Querie ({
-        question: req.body.question,
-        answer: req.body.answer
+        name: req.body.name,
+        email: req.body.email,
+        phone: req.body.phone,
+        address:req.body.address
     });
     Querie.create(newQuerie, function(err, data){
         if(err){

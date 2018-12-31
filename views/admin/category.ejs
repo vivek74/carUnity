@@ -62,14 +62,6 @@
                         <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
                             <div class="card card-1" >
                                 <div class="card-body" data-toggle="collapse" href="#category" role="button" aria-expanded="false" aria-controls="category" style="padding:1em; text-align: center; background-color: #FFC300; font-weight: bold; color: white;">
-                                  ADD CATEGORY
-                                </div>
-                            </div>
-                        </div>
-
-                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
-                            <div class="card card-1">
-                                <div id="retrieve-btn-make" class="card-body" data-toggle="collapse" href="#make" role="button" aria-expanded="false" aria-controls="make" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
                                   ADD MAKE
                                 </div>
                             </div>
@@ -77,8 +69,16 @@
 
                         <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
                             <div class="card card-1">
-                                <div id="retrieve-btn-model" class="card-body" data-toggle="collapse" href="#model" role="button" aria-expanded="false" aria-controls="model" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                <div id="retrieve-btn-make" class="card-body" data-toggle="collapse" href="#make" role="button" aria-expanded="false" aria-controls="make" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
                                   ADD MODEL
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top:1em;" class="col-md-4 col-sm-4 col-xm-2 pointer">
+                            <div class="card card-1">
+                                <div id="retrieve-btn-model" class="card-body" data-toggle="collapse" href="#model" role="button" aria-expanded="false" aria-controls="model" style="padding:1em; text-align: center;background-color: #FFC300; font-weight: bold; color: white;">
+                                  ADD SUBMODEL
                                 </div>
                             </div>
                         </div>
@@ -112,14 +112,14 @@
                     <div class="card card-2">
                         <div class="collapse" id="category">
                             <div class="card card-body card-padding" style="padding:1em;">
-                                <h5 class="card-title">ADD CATEGORY</h5>
+                                <h5 class="card-title">ADD MAKE</h5>
 
                                 <form>
                                     <div class="form-row">
                                         <div class="form-group col-md-12">
                                             <div class="form-group">
-                                                <label for="category">Category Name</label>
-                                                <input type="text" name="category" class="form-control" id="category_first" placeholder="category name">
+                                                <label for="category">Make</label>
+                                                <input type="text" name="category" class="form-control" id="category_first" placeholder="Type make name">
                                             </div>
                                             
                                         </div>
@@ -136,20 +136,20 @@
                     <div class="card card-2" style="margin-top:1em;">
                         <div class="collapse" id="make">
                             <div class="card card-body card-padding" style="padding:1em; ">
-                                <h5 class="card-title">ADD MAKE</h5>
+                                <h5 class="card-title">ADD MODEL</h5>
 
                                 <form id="make_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-6 " >
-                                            <label for="make">Select category</label>
+                                            <label for="make">Select make</label>
                                             <select name="category_second" id="allCategory" class="form-control">
 
                                             </select>
                                         </div>
                                         <div class="form-group col-md-6">
                                             <div class="form-group">
-                                                <label for="make">Make</label>
-                                                <input type="text" name="make" class="form-control" id="make_frist" placeholder="Make">
+                                                <label for="make">Model</label>
+                                                <input type="text" name="make" class="form-control" id="make_frist" placeholder="Model">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
@@ -164,26 +164,26 @@
                     <div class="card card-2" style="margin-top:1em;">
                         <div class="collapse" id="model">
                             <div class="card card-body card-padding" style="padding:1em; ">
-                                <h5 class="card-title">ADD MODEL</h5>
+                                <h5 class="card-title">ADD SUBMODEL</h5>
 
                                 <form id="model_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select category</label>
+                                            <label for="make">Select make</label>
                                             <select name="category_third" onchange="selectCategory(this.value)" id="allCategorymodel" class="form-control">
                                                 
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select make</label>
+                                            <label for="make">Select model</label>
                                             <select name="make_third" id="allMake" class="form-control">
-                                                <option>Select category</option>
+                                                <option>Select make</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <div class="form-group">
-                                                <label for="make">Model Name</label>
-                                                <input type="text" name="model" class="form-control" id="model_forth" placeholder="Model name">
+                                                <label for="make">Submodel Name</label>
+                                                <input type="text" name="model" class="form-control" id="model_forth" placeholder="Submodel name">
                                             </div>
                                         </div>
                                         <div class="form-group col-md-12">
@@ -204,21 +204,21 @@
                                 <form id="year_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select category</label>
+                                            <label for="make">Select make</label>
                                             <select onchange="selectCategoryyear(this.value)" id="allCategoryear" class="form-control">
                                         
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select make</label>
+                                            <label for="make">Select model</label>
                                             <select onchange="selectMakeyear(this.value)" id="allMakeyear" class="form-control">
-                                                <option>Select category</option>
+                                                <option>Select make</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="model">Select model</label>
+                                            <label for="model">Select submodel</label>
                                             <select name="model_forth" id="allMadeyear" class="form-control">
-                                                <option>Select make</option>
+                                                <option>Select model</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
@@ -245,27 +245,27 @@
                                 <form id="trim_form">
                                     <div class="form-row">
                                         <div class="form-group col-md-4">
-                                            <label for="category">Select category</label>
+                                            <label for="category">Select make</label>
                                             <select onchange="selectCategorytrim(this.value)" id="allCategortrim" class="form-control">
 
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="make">Select make</label>
+                                            <label for="make">Select model</label>
                                             <select onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control">
-                                                <option>Select category</option>
+                                                <option>Select make</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
-                                            <label for="model">Select model</label>
+                                            <label for="model">Select submodel</label>
                                             <select onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control">
-                                                <option>Select make</option>
+                                                <option>Select model</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">
                                             <label for="year">Select year</label>
                                             <select name="year_forth" id="allModeltrim" class="form-control">
-                                                <option>Select model</option>
+                                                <option>Select submodel</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-md-4">

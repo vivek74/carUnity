@@ -55,6 +55,11 @@ router.get("/contact-seller/:id", function(req,res){
     });
 });
 
+//contect for querry
+router.get("/contact-page-querry/:id", function(req,res){
+    res.render("../views/home/contact_page"); 
+});
+
 //sell car
 router.get("/sell-cars", function(req,res){
     res.render("../views/home/sell_cars");

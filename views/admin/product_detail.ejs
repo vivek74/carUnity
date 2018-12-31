@@ -58,9 +58,15 @@
 											
 									</div>
 									<div class="thumb-nail">
-											<a class="thumb-img" style="background-image: url(<%=data.carImage2%>);"></a>
-											<a class="thumb-img" style="background-image: url(<%=data.carImage3%>);"></a>
-											<a class="thumb-img" style="background-image: url(<%=data.carImage4%>);"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage2%>);background-size: cover;"></a>
+										<a class="thumb-img zoom" style="background-image: url(<%=data.carImage3%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage4%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage5%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage6%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage7%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage8%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage9%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage10%>);background-size: cover;"></a>
 									</div>
 								</div>
 							</div>
@@ -70,13 +76,7 @@
 									<p class="price">
 										<span>Rs.<%=data.price%></span> 		
 									</p>
-                                    <div style="margin-bottom:1em; margin-top:1em;" class="text-center colorlib-heading">
-                                        <h2 style="margin:0;"><span>Sellel Information</span></h2>
-                                    </div>
-									<p style="font-weight:bold; margin:0;">Name : <%=data.firstName%> <%=data.lastName%></p>
-                                    <p style="font-weight:bold;margin:0;">Email Id : <%=data.emailId%></p>
-                                    <p style="font-weight:bold;margin:0;">Phone No : <%=data.phoneNo%></p>
-                                    <p style="font-weight:bold;margin:0;">Pincode : <%=data.pincode%></p>
+                                    
                                     <div style="margin-bottom:1em; margin-top:1em;" class="text-center colorlib-heading">
                                         <h2 style="margin:0;"><span>Product Detail</span></h2>
                                     </div>
@@ -117,17 +117,23 @@
                 <form action="/admin/edit_car_details/<%=data.id%>" method="post" enctype="multipart/form-data">
                 <div class="modal-body" style="padding:0;">
 
-                        <div class="form-row" style="padding-top:1em;">
-                            <div class="form-group col-md-6">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
                                 <div class="form-group">
-                                    <label for="fristname">First name</label>
-                                    <input type="text" name="firstName" class="form-control" id="fristname" value="<%=data.firstName%>" required>
+                                    <label for="location_1">Location 1</label>
+                                    <input type="text" name="location1" class="form-control" id="location_1" value="<%=data.location1%>" required>
                                 </div>
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-4">
                                 <div class="form-group">
-                                    <label for="lastname">Last name</label>
-                                    <input type="text" name="lastName" class="form-control" id="lastname" value="<%=data.lastName%>" required>
+                                    <label for="location_2">Location 2</label>
+                                    <input type="text" name="location2" class="form-control" id="location_2" value="<%=data.location2%>" required>
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <div class="form-group">
+                                    <label for="location_3">location 3</label>
+                                    <input type="text" name="location3" class="form-control" id="location_3" value="<%=data.location3%>" required>
                                 </div>
                             </div>
                         </div>
@@ -135,22 +141,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" name="emailId" class="form-control" id="email" value="<%=data.emailId%>" required>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="phone">Phone number</label>
-                                    <input type="number" name="phoneNo" class="form-control" id="phone" value="<%=data.phoneNo%>" required>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="category">Select category</label>
+                                    <label for="category">Select make</label>
                                     <select name="catergory" onchange="selectCategorytrim(this.value)" id="allCategortrimAdd" class="form-control" required>
 
                                     </select>
@@ -158,7 +149,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="make">Select make</label>
+                                    <label for="make">Select model</label>
                                     <select name="make" onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control" required>
                                         <option>Select category</option>
                                     </select>
@@ -169,7 +160,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="model">Select model</label>
+                                    <label for="model">Select submodel</label>
                                     <select name="model" onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control" required>
                                         <option>Select make</option>
                                     </select>
@@ -196,8 +187,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="pincode">Pincode</label>
-                                    <input type="number" name="pincode" class="form-control" id="pincode" value="<%=data.pincode%>" required>
+                                    <label for="fristname">Owner name</label>
+                                    <input type="text" name="owner" class="form-control" id="fristname" value="<%=data.owner%>" required>
                                 </div>
                             </div>
                         </div>

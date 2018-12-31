@@ -1,8 +1,10 @@
 var mongoose = require("mongoose");
 
 var querieSchema = mongoose.Schema({
-        question: {type:String, default:"Not available"},
-        answer:{type:String, default:"Not available"}
+        name: {type:String, default:"Not available"},
+		phone:{type:String, default:"Not available"},
+		email:{type:String, default:"Not available"},
+		address:{type:String, default:"Not available"},
 		},
 	{
 		usePushEach: true

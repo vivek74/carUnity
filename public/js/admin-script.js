@@ -475,7 +475,8 @@ $(document).ready(function(){
 	{	
 		event.preventDefault();
 		event.stopPropagation();
-		var data={"question":$("#questionQ").val(),"answer":$("#answerQ").val()};
+		var data={"name":$("#nameQ").val(),"email":$("#emailQ").val(), "phone":$("#phoneQ").val(), "address":$("#addressQ").val()};
+		//console.log(JSON.stringify(data));
 		$.ajax({
 			beforeSend: function(){
 				$('.lodingLogin').css("display", "inline");
@@ -485,8 +486,11 @@ $(document).ready(function(){
 			contentType:"application/json",
 			data:JSON.stringify(data)
 		}).done(function(result){
-			removeQuerie("questionQ", "answerQ");
+			removeQuerie("nameQ", "emailQ", "phoneQ", "addressQ");
 			$('.lodingLogin').css("display", "none");
+				
+			$("#contact_hide").show();
+			$("#contact_form_hide").hide();
 		})
 		.fail(function(err)
 		{
@@ -496,10 +500,14 @@ $(document).ready(function(){
 });
 
 //clear textbox querie
-var removeQuerie = function(input1, input2){
+var removeQuerie = function(input1, input2 , input3, input4,){
 	var removeThis1 = document.getElementById(input1);
 	removeThis1.value = "";
 	var removeThis2 = document.getElementById(input2);
+	removeThis2.value = "";
+	var removeThis1 = document.getElementById(input3);
+	removeThis1.value = "";
+	var removeThis2 = document.getElementById(input4);
 	removeThis2.value = "";
 };
 
@@ -513,7 +521,7 @@ $(document).ready(function(){
 			$('.loader-card').css("display", "none");
 			let html = '';
 			var i=0; data.data.forEach(function(allQuerie){
-				html += '<div id="delDivQ'+i+'" class="card card-2" style="padding:1em; margin-top:1em; background-color: #fafafa;"><h5 style="margin:0;">Q1 - '+ allQuerie.question +'</h5><p style="margin:0;">Ans - '+ allQuerie.answer +'</p> <button type="button" class="btn btn-warning btn-sm" style="padding:4px;font-size:12px;" onclick="deleteQ('+i+' , \'' + allQuerie._id +'\')">Delete </button></div>';
+				html += '<div id="delDivQ'+i+'" class="card card-2" style="padding:1em; margin-top:1em; background-color: #fafafa;"><h5 style="margin:0;">Name - '+ allQuerie.name +'</h5><p style="margin:0;">Email - '+ allQuerie.email +'</p><p style="margin:0;">Email - '+ allQuerie.phone +'</p><p style="margin:0;">Email - '+ allQuerie.address +'</p> <button type="button" class="btn btn-warning btn-sm" style="padding:4px;font-size:12px;" onclick="deleteQ('+i+' , \'' + allQuerie._id +'\')">Delete </button></div>';
 				i++; });
 				
 			$('#showing_querie').html(html);
@@ -545,3 +553,11 @@ $.get(
 		
 	$('#showing_querie_user').html(html);
 });
+
+
+//hide and unhide contact page
+
+$(document).ready(function(){
+    $("#contact_hide").hide();
+});
+
