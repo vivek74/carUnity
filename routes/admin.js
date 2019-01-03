@@ -227,7 +227,9 @@ router.post("/new-queries",middleware.isLoggedIn, function(req,res){
         name: req.body.name,
         email: req.body.email,
         phone: req.body.phone,
-        address:req.body.address
+        address:req.body.address,
+        carName:req.body.carName,
+        purpose:req.body.purpose
     });
     Querie.create(newQuerie, function(err, data){
         if(err){

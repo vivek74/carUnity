@@ -475,7 +475,7 @@ $(document).ready(function(){
 	{	
 		event.preventDefault();
 		event.stopPropagation();
-		var data={"name":$("#nameQ").val(),"email":$("#emailQ").val(), "phone":$("#phoneQ").val(), "address":$("#addressQ").val()};
+		var data={"name":$("#nameQ").val(),"email":$("#emailQ").val(), "phone":$("#phoneQ").val(), "address":$("#addressQ").val(), "carName":$("#carNameQ").val(), "purpose":$("#purposeQ").val()};
 		//console.log(JSON.stringify(data));
 		$.ajax({
 			beforeSend: function(){
@@ -521,9 +521,8 @@ $(document).ready(function(){
 			$('.loader-card').css("display", "none");
 			let html = '';
 			var i=0; data.data.forEach(function(allQuerie){
-				html += '<div id="delDivQ'+i+'" class="card card-2" style="padding:1em; margin-top:1em; background-color: #fafafa;"><h5 style="margin:0;">Name - '+ allQuerie.name +'</h5><p style="margin:0;">Email - '+ allQuerie.email +'</p><p style="margin:0;">Email - '+ allQuerie.phone +'</p><p style="margin:0;">Email - '+ allQuerie.address +'</p> <button type="button" class="btn btn-warning btn-sm" style="padding:4px;font-size:12px;" onclick="deleteQ('+i+' , \'' + allQuerie._id +'\')">Delete </button></div>';
+				html += '<div id="delDivQ'+i+'" class="card card-2" style="padding:1em; margin-top:1em; background-color: #fafafa;"><h5 style="margin:0;">Name - '+ allQuerie.name +'</h5><p style="margin:0;">Email - '+ allQuerie.email +'</p><p style="margin:0;">Phone - '+ allQuerie.phone +'</p><p style="margin:0;">Address - '+ allQuerie.address +'</p><p style="margin:0;">Purpose - '+ allQuerie.purpose +'</p><p class="under" onclick="carDetailQ('+i+' ,\'' + allQuerie.carName +'\')" style="margin:0;cursor:pointer; color:black;font-weight:bold;">Show Car details</p><img style="display:none;" class="loader-card'+i+'" src="/images/loader.gif"  /><div id="showing_car_details'+i+'"> </div><button type="button" class="btn btn-warning btn-sm" style="padding:4px;font-size:12px; margin-top:1em;" onclick="deleteQ('+i+' , \'' + allQuerie._id +'\')">Delete </button></div>';
 				i++; });
-				
 			$('#showing_querie').html(html);
         });
     });
@@ -539,6 +538,19 @@ function deleteQ(data,id) {
 	$.get(
 		"/admin/delete-querries/"+id
 	)
+}
+
+
+function carDetailQ(id,data){
+	$('.loader-card'+id).css("display", "inline");	
+        $.get(
+            "/get-car-data/"+data
+        ).done(data => {
+			$('.loader-card'+id).css("display", "none");
+			let html = '<div class="card card-2" style="padding:1em;"><div class="row"><div class="col-md-6"><img style="width: 100%;" src="'+data.data.carImage1+'"  /></div><div class="col-md-6"><p style="font-weight:bold;margin:0;">Catergory : '+data.data.catergory+'</p><p style="font-weight:bold;margin:0;">Make : '+data.data.make+'</p><p style="font-weight:bold;margin:0;">Model : '+data.model+'</p><p style="font-weight:bold;margin:0;">Year : '+data.year+'</p><p style="font-weight:bold;margin:0;">Trim : '+data.data.trim+'</p><p style="font-weight:bold;margin:0;">Kilometers Driven : '+data.data.kilometersDriven+' KM</p><p style="font-weight:bold;margin:0;">Vehicle RegNo : '+data.data.vehicleRegNo+'</p></div></div></div>';
+			$('#showing_car_details'+id).html(html);
+			
+    });
 }
 
 //queir for user

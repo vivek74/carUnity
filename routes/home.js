@@ -46,18 +46,12 @@ router.get("/view_details/:carId", function(req,res){
 
 //thanku page
 router.get("/contact-seller/:id", function(req,res){
-    Car.findById(req.params.id, function(err,data){
-        if(err){
-            console.log(err)
-        }else{
-           res.render("../views/home/thanku_page",{data:data}); 
-        }
-    });
+    res.render("../views/home/thanku_page",{data:req.params.id}); 
 });
 
 //contect for querry
 router.get("/contact-page-querry/:id", function(req,res){
-    res.render("../views/home/contact_page"); 
+    res.render("../views/home/contact_page",{data:req.params.id});
 });
 
 //sell car
@@ -133,6 +127,19 @@ router.get("/get-car-data-trim/:id", function(req,res){
         if(err){
             console.log(err);
         } else {
+            res.send({data});
+        }
+    });
+});
+
+//get car data
+router.get("/get-car-data/:id", function(req,res){
+    //console.log(req.params.id);
+    Car.findById(req.params.id, function(err,data){
+        if(err){
+            console.log(err);
+        } else {
+            //console.log(data);
             res.send({data});
         }
     });
