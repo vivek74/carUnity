@@ -117,111 +117,124 @@
                 <form action="/admin/edit_car_details/<%=data.id%>" method="post" enctype="multipart/form-data">
                 <div class="modal-body" style="padding:0;">
 
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label for="location_1">Location 1</label>
-                                    <input type="text" name="location1" class="form-control" id="location_1" value="<%=data.location1%>" required>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label for="location_2">Location 2</label>
-                                    <input type="text" name="location2" class="form-control" id="location_2" value="<%=data.location2%>" required>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label for="location_3">location 3</label>
-                                    <input type="text" name="location3" class="form-control" id="location_3" value="<%=data.location3%>" required>
-                                </div>
+                    <div style="padding-top:1em;" class="form-row">
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <label for="location_1">Location 1</label>
+                                <select name="location1" class="form-control" id="location_1" required>
+                                    <option>Delhi</option>
+                                    <option>Punjab</option>
+                                    <option>Gujarat</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <label for="location_2">Location 2</label>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="category">Select make</label>
-                                    <select name="catergory" onchange="selectCategorytrim(this.value)" id="allCategortrimAdd" class="form-control" required>
-
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="make">Select model</label>
-                                    <select name="make" onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control" required>
-                                        <option>Select category</option>
-                                    </select>
-                                </div>
+                                <select name="location2" class="form-control" id="location_2" required>
+                                    <option>Delhi</option>
+                                    <option>Punjab</option>
+                                    <option>Gujarat</option>
+                                </select>
                             </div>
                         </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="model">Select submodel</label>
-                                    <select name="model" onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control" required>
-                                        <option>Select make</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="year">Select year</label>
-                                    <select onchange="selectYeartrim(this.value)" name="year" id="allModeltrim" class="form-control" required>
-                                        <option>Select model</option>
-                                    </select>
-                                </div>
+                        <div class="form-group col-md-4">
+                            <div class="form-group">
+                                <label for="location_3">location 3</label>
+                                <select name="location3" class="form-control" id="location_3" required>
+                                    <option>Delhi</option>
+                                    <option>Punjab</option>
+                                    <option>Gujarat</option>
+                                </select>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="trim">Select trim</label>
-                                    <select name="trim" id="allYeartrim" class="form-control" required>
-                                        <option>Select year</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="fristname">Owner name</label>
-                                    <input type="text" name="owner" class="form-control" id="fristname" value="<%=data.owner%>" required>
-                                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="category">Select make</label>
+                                <select name="catergory" onchange="selectCategorytrim(this.value)" id="allCategortrimAdd" class="form-control" required>
+
+                                </select>
                             </div>
                         </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="kilometersDriven">Kilometers Driven</label>
-                                    <input type="text" name="kilometersDriven" class="form-control" id="kilometersDriven" value="<%=data.kilometersDriven%>" required>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="vehicleRegNo">Vehicle RegNo</label>
-                                    <input type="text" name="vehicleRegNo" class="form-control" id="vehicleRegNo" value="<%=data.vehicleRegNo%>" required>
-                                </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="make">Select model</label>
+                                <select name="make" onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control" required>
+                                    <option>Select category</option>
+                                </select>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="carPic">Upload car pics</label>
-                                    <input style="padding:1em;" id="carPic" name="myImage" type="file" class="form-control-file" multiple>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="price">Price</label>
-                                    <input type="text" name="price" class="form-control" id="price" value="<%=data.price%>" required>
-                                </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="model">Select submodel</label>
+                                <select name="model" onchange="selectModeltrim(this.value)" id="allMadetrim" class="form-control" required>
+                                    <option>Select make</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="year">Select year</label>
+                                <select onchange="selectYeartrim(this.value)" name="year" id="allModeltrim" class="form-control" required>
+                                    <option>Select model</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="trim">Select trim</label>
+                                <select name="trim" id="allYeartrim" class="form-control" required>
+                                    <option>Select year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="fristname">Owner name</label>
+                                <input type="text" name="owner" class="form-control" id="fristname" placeholder="Owner name" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="kilometersDriven">Kilometers Driven</label>
+                                <input type="text" name="kilometersDriven" class="form-control" id="kilometersDriven" placeholder="KilometersDriven" required>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="vehicleRegNo">Vehicle RegNo</label>
+                                <input type="text" name="vehicleRegNo" class="form-control" id="vehicleRegNo" placeholder="VehicleRegNo" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="carPic">Upload car pics</label>
+                                <input style="padding:1em;" id="carPic" name="myImage" type="file" class="form-control-file" multiple>
+                            </div>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input type="text" name="price" class="form-control" id="price" placeholder="Price" required>
+                            </div>
+                        </div>
+                    </div>
     
 
                 </div>
