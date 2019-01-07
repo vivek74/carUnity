@@ -256,7 +256,7 @@ h1, h2, h3, h4, h5, h6, figure {
     transform: scale(1.1); }
 
 #colorlib-hero {
-  height: 650px;
+  height: 400px;
   background: #fff url(../images/loader.gif) no-repeat center center;
   width: 100%;
   float: left;
@@ -277,7 +277,7 @@ h1, h2, h3, h4, h5, h6, figure {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center center;
-        height: 650px;
+        height: 400px;
         position: relative; }
         #colorlib-hero .flexslider .slides li .overlay {
           position: absolute;
@@ -308,12 +308,12 @@ h1, h2, h3, h4, h5, h6, figure {
     #colorlib-hero .flexslider .slider-text {
       display: table;
       opacity: 0;
-      height: 650px;
+      height: 400px;
       z-index: 9; }
       #colorlib-hero .flexslider .slider-text > .slider-text-inner {
         display: table-cell;
         vertical-align: middle;
-        height: 650px; }
+        height: 400px; }
         @media screen and (max-width: 768px) {
           #colorlib-hero .flexslider .slider-text > .slider-text-inner {
             text-align: center; } }
@@ -339,13 +339,13 @@ h1, h2, h3, h4, h5, h6, figure {
         #colorlib-hero .flexslider .slider-text > .slider-text-inner h1, #colorlib-hero .flexslider .slider-text > .slider-text-inner h2 {
           margin: 0;
           padding: 0;
-          color: black;
+          color: white;
           text-transform: uppercase; }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner h1 {
           color: #000; }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner .head-1 {
           font-weight: 700;
-          font-size: 35px;
+          font-size: 50px;
           margin-bottom: 5px; }
         #colorlib-hero .flexslider .slider-text > .slider-text-inner .head-2 {
           font-size: 30px;

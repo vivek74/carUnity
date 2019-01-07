@@ -15,7 +15,7 @@
                                 <%}%>
                                 <li ><a href="/">Home</a></li>
                                 <li><a href="/buy-cars">Buy Cars</a></li>
-                                <li><a href="/sell-cars">Sell Cars</a></li>
+                                <li><a href="/sell-cars">Sell your Car</a></li>
                                 <li><a href="/contact-us">Get In Touch</a></li>
                                 <%if(currentUser){%>
                                     <li><a href="/index/logout">Logout</a></li>
@@ -52,6 +52,10 @@
                     <div onclick="window.location.href = '/admin/manage-category'" class="alert alert-primary card-1 pointer">
                         <p style="font-weight:bold;text-align: center;">MANAGE CATEGORY</p>
                     </div>
+
+                    <div onclick="window.location.href = '/admin/car-submition'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold;text-align: center;">CAR SUBMITIONS</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -61,43 +65,23 @@
                     <form action="/admin/add_new_car" method="post" enctype="multipart/form-data">
 
                         <div style="padding-top:1em;" class="form-row">
-                            <div class="form-group col-md-4">
+                            <div class="form-group col-md-12">
                                 <div class="form-group">
-                                    <label for="location_1">Location 1</label>
+                                    <label for="location_1">Location</label>
                                     <select name="location1" class="form-control" id="location_1" required>
-                                        <option>Delhi</option>
-                                        <option>Punjab</option>
-                                        <option>Gujarat</option>
+                                            <option>Akota</option>
+                                            <option>Akota</option>
+                                            <option>Makarpura GIDC</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label for="location_2">Location 2</label>
 
-                                    <select name="location2" class="form-control" id="location_2" required>
-                                        <option>Delhi</option>
-                                        <option>Punjab</option>
-                                        <option>Gujarat</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <div class="form-group">
-                                    <label for="location_3">location 3</label>
-                                    <select name="location3" class="form-control" id="location_3" required>
-                                        <option>Delhi</option>
-                                        <option>Punjab</option>
-                                        <option>Gujarat</option>
-                                    </select>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <div class="form-group">
-                                    <label for="category">Select make</label>
+                                    <label for="category">Select manufacture</label>
                                     <select name="catergory" onchange="selectCategorytrim(this.value)" id="allCategortrimAdd" class="form-control" required>
 
                                     </select>
@@ -133,18 +117,12 @@
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <div class="form-group">
-                                    <label for="trim">Select trim</label>
+                                    <label for="trim">Select fuel type</label>
                                     <select name="trim" id="allYeartrim" class="form-control" required>
                                         <option>Select year</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="form-group">
-                                    <label for="fristname">Owner name</label>
-                                    <input type="text" name="owner" class="form-control" id="fristname" placeholder="Owner name" required>
                                 </div>
                             </div>
                         </div>

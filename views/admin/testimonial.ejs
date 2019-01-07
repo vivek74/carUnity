@@ -14,7 +14,7 @@
                                 <%}%>
                                 <li ><a href="/">Home</a></li>
                                 <li><a href="/buy-cars">Buy Cars</a></li>
-                                <li><a href="/sell-cars">Sell Cars</a></li>
+                                <li><a href="/sell-cars">Sell your Car</a></li>
                                 <li><a href="/contact-us">Get In Touch</a></li>
                                 <%if(currentUser){%>
                                     <li><a href="/index/logout">Logout</a></li>
@@ -49,6 +49,10 @@
 
                     <div onclick="window.location.href = '/admin/manage-category'" class="alert alert-primary card-1 pointer">
                         <p style="font-weight:bold;text-align: center;">MANAGE CATEGORY</p>
+                    </div>
+
+                    <div onclick="window.location.href = '/admin/car-submition'" class="alert alert-primary card-1 pointer">
+                        <p style="font-weight:bold;text-align: center;">CAR SUBMITIONS</p>
                     </div>
                 </div>
             </div>

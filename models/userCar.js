@@ -1,7 +1,10 @@
 var mongoose = require("mongoose");
 
-var carSchema = mongoose.Schema({
-        location1: {type:String, default:"Not available"},
+var usercarSchema = mongoose.Schema({
+        name:{type:String,default:"Not available"},
+        place:{type:String,default:"Not available"},
+        email:{type:String,default:"Not available"},
+        number:{type:String,default:"Not available"},
         catergory:{type:String,default:"Not available"},//car ,bus
         make:{type:String,default:"Not available"},
         model:{type:String,default:"Not available"},
@@ -10,6 +13,7 @@ var carSchema = mongoose.Schema({
         kilometersDriven:{type:String, default:"Not available"},
         vehicleRegNo:{type:String,default:"Not available"},
         price:{type:String,default:"Not available"},
+        other:{type:String,default:"Not available"},
         carImage1:{type:String},
         carImage2:{type:String},
         carImage3:{type:String},
@@ -25,4 +29,4 @@ var carSchema = mongoose.Schema({
 		usePushEach: true
 });
 
-module.exports = mongoose.model("Car", carSchema);
+module.exports = mongoose.model("UserCar", usercarSchema);

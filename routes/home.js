@@ -145,4 +145,9 @@ router.get("/get-car-data/:id", function(req,res){
     });
 });
 
+//thanku car
+router.get("/thanku-for-submition", function(req,res){
+    res.render('../views/home/thankuCar.ejs')
+});
+
 module.exports = router;

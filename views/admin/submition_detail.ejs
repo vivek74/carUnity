@@ -1,0 +1,112 @@
+<% include ./partials/header %>
+<div id="page">
+    <nav class="colorlib-nav" role="navigation">
+        <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <div ><a style="color:black; font-weight:bold; font-size:medium;" href="/"> <img style="width:40%;" src="/images/logo_unit.png"/> Unity cars</a></div>
+                        </div>
+                        <div class="col-xs-10 text-right menu-1">
+                            <ul class="captial">
+                                <%if(currentUser){%>
+                                    <li class="active"><a href="/admin/view_all_cars">Admin</a></li>
+                                <%}%>
+                                <li ><a href="/">Home</a></li>
+                                <li><a href="/buy-cars">Buy Cars</a></li>
+                                <li><a href="/sell-cars">Sell your Car</a></li>
+                                <li><a href="/contact-us">Get In Touch</a></li>
+                                <%if(currentUser){%>
+                                    <li><a href="/index/logout">Logout</a></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </nav>
+
+    <aside id="colorlib-hero" class="breadcrumbs">
+	    <div class="flexslider">
+				<ul class="slides">
+			   	<li style="background-image: url(/images/cover-img-1.jpg);">
+			   		<div class="overlay"></div>
+			   		<div class="container-fluid">
+			   			<div class="row">
+				   			<div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 slider-text">
+				   				<div class="slider-text-inner text-center">
+				   					<h1>Product Detail</h1>
+				   					<h2 class="bread"><span><a href="/admin/view_all_cars">Admin</a></span> <span><a href="/admin/view_all_cars">All Product</a></span> <span>Product Detail</span></h2>
+				   				</div>
+				   			</div>
+				   		</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+	</aside>
+
+	<div class="colorlib-shop">
+		<div class="container">
+			<div class="row row-pb-lg">
+				<div class="col-md-10 col-md-offset-1">
+					<div class="product-detail-wrap">
+						<div class="row">
+							<div class="col-md-5">
+								<div class="product-entry">
+									<div class="product-img" style="background-image: url(<%=data.carImage1%>);">
+											
+									</div>
+									<div class="thumb-nail">
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage2%>);background-size: cover;"></a>
+										<a class="thumb-img zoom" style="background-image: url(<%=data.carImage3%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage4%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage5%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage6%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage7%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage8%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage9%>);background-size: cover;"></a>
+                                        <a class="thumb-img zoom" style="background-image: url(<%=data.carImage10%>);background-size: cover;"></a>
+									</div>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="desc">
+									<h3><%=data.model%></h3>
+									<p class="price">
+										<span>Rs.<%=data.price%></span> 		
+									</p>
+                                    
+                                    <div style="margin-bottom:1em; margin-top:1em;" class="text-center colorlib-heading">
+                                        <h2 style="margin:0;"><span>Product Detail</span></h2>
+                                    </div>
+                                    <p style="font-weight:bold;margin:0;">Name : <%=data.name%></p>
+                                    <p style="font-weight:bold;margin:0;">Email : <%=data.email%></p>
+                                    <p style="font-weight:bold;margin:0;">Number : <%=data.number%></p>
+                                    <p style="font-weight:bold;margin:0;">Place : <%=data.place%></p>
+                                    <p style="font-weight:bold;margin:0;">Catergory : <%=data.catergory%></p>
+                                    <p style="font-weight:bold;margin:0;">Manufacture : <%=data.make%></p>
+                                    <p style="font-weight:bold;margin:0;">Model : <%=data.model%></p>
+                                    <p style="font-weight:bold;margin:0;">Year : <%=data.year%></p>
+                                    <p style="font-weight:bold;margin:0;">Fuel type : <%=data.trim%></p>
+                                    <p style="font-weight:bold;margin:0;">Kilometers Driven : <%=data.kilometersDriven%> KM</p>
+                                    <p style="font-weight:bold;margin:0;">Vehicle RegNo : <%=data.vehicleRegNo%></p>
+                                    <p style="font-weight:bold;margin:0;">Expected price : <%=data.price%></p>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <p style="margin-top:1em;"><a href="/admin/delete-car-submition/<%=data.id%>" class="btn btn-primary btn-addtocart"> Delete</a></p>
+                                        </div>
+                                    </div>
+								</div>
+							</div>
+				        </div>
+			        </div>
+		        </div>
+	        </div>
+        </div>
+    </div>
+
+    
+
+
+<% include ./partials/footer %>

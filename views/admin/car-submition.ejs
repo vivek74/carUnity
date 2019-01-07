@@ -36,7 +36,7 @@
                         <p style="font-weight:bold; text-align: center;">ADD NEW CARS</p>
                     </div>
             
-                    <div style="font-weight: bold; text-align: center; color:#FFC300;background-color: #fafafa" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                    <div style="font-weight: bold; text-align: center;background-color: #fafafa" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
                         <p>VIEW UPLOADED PRODUCTS</p>
                     </div>
                             
@@ -52,7 +52,7 @@
                         <p style="font-weight:bold;text-align: center;">MANAGE CATEGORY</p>
                     </div>
 
-                    <div onclick="window.location.href = '/admin/car-submition'" class="alert alert-primary card-1 pointer">
+                    <div style="font-weight: bold; text-align: center; color:#FFC300;background-color: #fafafa" onclick="window.location.href = '/admin/car-submition'" class="alert alert-primary card-1 pointer">
                         <p style="font-weight:bold;text-align: center;">CAR SUBMITIONS</p>
                     </div>
 
@@ -63,7 +63,7 @@
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
                     <% data.reverse().forEach(function(cars){ %>
-                        <div onclick="window.location.href = '/admin/product_details/<%=cars.id%>'" class="card card-1 pointer" style="margin-top:1em;">
+                        <div onclick="window.location.href = '/admin/car-submition/<%=cars.id%>'" class="card card-1 pointer" style="margin-top:1em;">
                             <div style="padding:1em; background-color: #fafafa;">
                                 <div class="row">
                                     <div class="col-md-4 col-sm-4 col-xs-6" style="padding:1em;">
@@ -72,8 +72,13 @@
                                     <div class="col-md-8 col-sm-8 col-xs-6" style="padding:1em;">
                                         <div class="card card-2">
                                             <div style="padding:1em;">
+                                                <p style="font-weight:bold; margin:0;">Name :  <%=cars.name%></p>
+                                                <p style="font-weight:bold; margin:0;">Number :  <%=cars.number%></p>
+                                                <p style="font-weight:bold; margin:0;">Email :  <%=cars.email%></p>
+                                                <p style="font-weight:bold; margin:0;">Place :  <%=cars.place%></p>
                                                 <p style="font-weight:bold; margin:0;">Catergory :  <%=cars.catergory%></p>
                                                 <p style="font-weight:bold; margin:0;">Model :  <%=cars.model%></p>
+                                                <p style="font-weight:bold; margin:0;">Expected price :  <%=cars.price%></p>
                                             </div>
                                         </div>
                                     </div>

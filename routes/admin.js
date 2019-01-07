@@ -2,6 +2,7 @@ var express = require("express");
 var router  = express.Router();
 var Car = require('../models/car');
 var User = require('../models/user');
+var UserCar = require('../models/userCar');
 
 var Category = require("../models/car/category");
 var Make = require("../models/car/make");
@@ -60,10 +61,7 @@ router.post("/add_new_car", function(req,res){
             res.redirect("back");
         } else{
             var newCar = new Car({
-                owner: req.body.owner,
                 location1:req.body.location1,
-                location2:req.body.location2,
-                location3:req.body.location3,
                 catergory:req.body.catergory,
                 make:req.body.make,
                 model:req.body.model,
@@ -485,6 +483,109 @@ router.get("/retrieve_trim", function(req,res){
             });
         }
     })
+});
+
+//new car submition
+
+//add new user car
+router.post("/user_add_new_car", function(req,res){
+
+    upload(req, res, (err) =>{
+        if(err){
+            console.log(err);
+            req.flash('error', 'error went');
+            res.redirect("back");
+        } else{
+            var newCar = new UserCar({
+                name:req.body.name,
+                email:req.body.email,
+                number:req.body.number,
+                place:req.body.place,
+                catergory:req.body.catergory,
+                make:req.body.make,
+                model:req.body.model,
+                year:req.body.year,
+                trim:req.body.trim,
+                kilometersDriven:req.body.kilometersDriven,
+                vehicleRegNo:req.body.vehicleRegNo,
+                price:req.body.price,
+                other:req.body.other
+            });
+            
+            if(req.files[0] != undefined){
+                newCar.carImage1 = "/uploads/"+req.files[0].filename;
+            }
+            if(req.files[1] != undefined){
+                newCar.carImage2 = "/uploads/"+req.files[1].filename;
+            }
+            if(req.files[2] != undefined){
+                newCar.carImage3 = "/uploads/"+req.files[2].filename;
+            }
+            if(req.files[3] != undefined){
+                newCar.carImage4 = "/uploads/"+req.files[3].filename;
+            }
+            if(req.files[4] != undefined){
+                newCar.carImage5 = "/uploads/"+req.files[4].filename;
+            }
+            if(req.files[5] != undefined){
+                newCar.carImage6 = "/uploads/"+req.files[5].filename;
+            }
+            if(req.files[6] != undefined){
+                newCar.carImage7 = "/uploads/"+req.files[6].filename;
+            }
+            if(req.files[7] != undefined){
+                newCar.carImage8 = "/uploads/"+req.files[7].filename;
+            }
+            if(req.files[8] != undefined){
+                newCar.carImage9 = "/uploads/"+req.files[8].filename;
+            }
+            if(req.files[9] != undefined){
+                newCar.carImage10 = "/uploads/"+req.files[9].filename;
+            }
+
+            UserCar.create(newCar, function(err, data){
+                if(err){
+                    res.send(err);
+                }else{
+                    res.redirect('/thanku-for-submition');
+                }
+            });
+        }
+    })
+
+});
+
+//car submition route
+router.get("/car-submition", function(req,res){
+    UserCar.find({}, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            res.render('../views/admin/car-submition.ejs',{data:data});
+        }
+    });
+});
+
+//get detailed car
+router.get("/car-submition/:id", function(req,res){
+    UserCar.findById(req.params.id, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            res.render('../views/admin/submition_detail.ejs',{data:data});
+        }
+    });
+});
+
+//delete
+router.get("/delete-car-submition/:id", function(req,res){
+    UserCar.findByIdAndRemove(req.params.id, function(err,data){
+        if(err){
+            res.send(err)
+        } else{
+            res.redirect('/admin/car-submition')
+        }
+    });
 });
 
 
