@@ -16,6 +16,8 @@ var moment = require('moment-timezone');
 var multer=require('multer');
 var path= require('path');
 
+var nodemailer      = require("nodemailer");
+
 var middleware = require("../middleware");
 
 var storage=multer.diskStorage({
@@ -233,7 +235,27 @@ router.post("/new-queries",middleware.isLoggedIn, function(req,res){
         if(err){
             res.send(err);
         }else{
-            res.end();
+            var transport = require('nodemailer-smtp-transport');
+            var smtpTransport = nodemailer.createTransport(transport({
+                service: 'gmail',
+                host: 'smtp.gmail.com',
+                auth: {
+                    user: "unitycars123456@gmail.com",
+                    pass: "Unitycars@123456"
+                }
+            }));
+            var mailOptions = {
+                to: "unitycarsho@gmail.com",
+                from: "unitycars123456@gmail.com",
+                subject: "New notification",
+                text: 'New query!'
+            };
+            smtpTransport.sendMail(mailOptions, function(err){
+                if(err) console.log(err);
+                else{
+                    res.end();
+                }
+            }); 
         }
     });
 });
@@ -547,7 +569,28 @@ router.post("/user_add_new_car", function(req,res){
                 if(err){
                     res.send(err);
                 }else{
-                    res.redirect('/thanku-for-submition');
+                    var transport = require('nodemailer-smtp-transport');
+                    var smtpTransport = nodemailer.createTransport(transport({
+                        service: 'gmail',
+                        host: 'smtp.gmail.com',
+                        auth: {
+                            user: "unitycars123456@gmail.com",
+                            pass: "Unitycars@123456"
+                        }
+                    }));
+                    var mailOptions = {
+                        to: "unitycarsho@gmail.com",
+                        from: "unitycars123456@gmail.com",
+                        subject: "New notification",
+                        text: 'New car added to account!'
+                    };
+                    smtpTransport.sendMail(mailOptions, function(err){
+                        if(err) console.log(err);
+                        else{
+                            res.redirect('/thanku-for-submition');
+                        }
+                    });
+                    
                 }
             });
         }
