@@ -71,11 +71,11 @@ app.use("/admin", adminRoutes);
 app.use("/filter",filterRoutes);
 app.use("/demo",demoRoutes);
 
-// app.listen(8000, function(){
-//    console.log("server started at 8000");
-// });
-
-app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("server started");
+app.listen(8000, function(){
+   console.log("server started at 8000");
 });
+
+// app.listen(process.env.PORT, process.env.IP, function(){
+//   console.log("server started");
+// });
  
