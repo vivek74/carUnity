@@ -36,7 +36,7 @@
                         <p style="font-weight:bold; text-align: center;">ADD NEW CARS</p>
                     </div>
             
-                    <div style="font-weight: bold; text-align: center; color:#FFC300;background-color: #fafafa" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
+                    <div style="font-weight: bold; text-align: center; color:red;background-color: #fafafa" onclick="window.location.href = '/admin/view_all_cars'" class="alert alert-primary card-1 pointer">
                         <p>VIEW UPLOADED PRODUCTS</p>
                     </div>
                             
@@ -74,7 +74,7 @@
                                             <div style="padding:1em;">
                                                 <p style="font-weight:bold; margin:0;">Catergory :  <%=cars.catergory%></p>
                                                 <p style="font-weight:bold; margin:0;">Model :  <%=cars.model%></p>
-                                                <p style="font-weight:bold; margin:0;">Selling status :  <%if(data.sold==false){%>IN SALE<%}else{%>SOLD OUT <%}%></p>
+                                                <p style="font-weight:bold; margin:0;">Selling status :  <%if(cars.sold==false){%>IN SALE<%}else{%>SOLD OUT <%}%></p>
                                             </div>
                                         </div>
                                     </div>

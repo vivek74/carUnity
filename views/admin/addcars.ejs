@@ -33,7 +33,7 @@
             <div class="card card-2">
                 <div class="card-body" style="padding:1em;">
                     
-                    <div style="font-weight: bold; color:#FFC300;background-color: #fafafa;" onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
+                    <div style="font-weight: bold; color:red;background-color: #fafafa;" onclick="window.location.href = '/admin/add_cars'" class="alert alert-primary card-1 pointer">
                         <p style="font-weight:bold; text-align: center;">ADD NEW CARS</p>
                     </div>
             
@@ -92,7 +92,7 @@
                                 <div class="form-group">
                                     <label for="make">Select model</label>
                                     <select name="make" onchange="selectMaketrim(this.value)" id="allMaketrim" class="form-control" required>
-                                        <option>Select category</option>
+                                        <option>Select manufacture</option>
                                     </select>
                                 </div>
                             </div>
@@ -110,8 +110,8 @@
                             <div class="form-group col-md-6">
                                 <div class="form-group">
                                     <label for="year">Select year</label>
-                                    <select onchange="selectYeartrim(this.value)" name="year" id="allModeltrim" class="form-control" required>
-                                        <option>Select model</option>
+                                    <select onchange="selectYeartrim(this.value)" name="year" id="allModeltrim" class="form-control">
+                                        <option disabled selected>Select model</option>
                                     </select>
                                 </div>
                             </div>
@@ -121,8 +121,8 @@
                             <div class="form-group col-md-12">
                                 <div class="form-group">
                                     <label for="trim">Select fuel type</label>
-                                    <select name="trim" id="allYeartrim" class="form-control" required>
-                                        <option>Select year</option>
+                                    <select name="trim" id="allYeartrim" class="form-control">
+                                        <option disabled selected>Select year</option>
                                     </select>
                                 </div>
                             </div>
