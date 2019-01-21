@@ -71,7 +71,10 @@ router.post("/add_new_car", function(req,res){
                 trim:req.body.trim,
                 kilometersDriven:req.body.kilometersDriven,
                 vehicleRegNo:req.body.vehicleRegNo,
-                price:req.body.price
+                price:req.body.price,
+                ownerShip:req.body.ownerShip,
+                insurance:req.body.insurance,
+                insuranceDate:req.body.insuranceDate
             });
             
             if(req.files[0] != undefined){
@@ -531,7 +534,10 @@ router.post("/user_add_new_car", function(req,res){
                 kilometersDriven:req.body.kilometersDriven,
                 vehicleRegNo:req.body.vehicleRegNo,
                 price:req.body.price,
-                other:req.body.other
+                other:req.body.other,
+                ownerShip:req.body.ownerShip,
+                insurance:req.body.insurance,
+                insuranceDate:req.body.insuranceDate
             });
             
             if(req.files[0] != undefined){
@@ -631,5 +637,22 @@ router.get("/delete-car-submition/:id", function(req,res){
     });
 });
 
-
+//change status
+router.get("/change_sold_status", function(req,res){
+    console.log(req.query);
+    var newData = {};
+    if(req.query.sold == "IN SALE"){
+        newData.sold = false;
+    }
+    if(req.query.sold == "SOLD OUT"){
+        newData.sold = true;
+    }
+    Car.findByIdAndUpdate(req.query.id, {$set: newData}, function(err, data){
+        if(err){
+            res.send(err);
+        } else {
+            res.end();
+        }
+    });
+});
 module.exports = router;

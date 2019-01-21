@@ -20,6 +20,10 @@ var carSchema = mongoose.Schema({
         carImage8:{type:String},
         carImage9:{type:String},
         carImage10:{type:String},
+        sold:{type: Boolean, default: false},
+        ownerShip:{type:String},
+        insurance:{type:String},
+        insuranceDate:{type:String},
 		},
 	{
 		usePushEach: true

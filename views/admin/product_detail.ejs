@@ -87,6 +87,26 @@
                                     <p style="font-weight:bold;margin:0;">Fuel type : <%=data.trim%></p>
                                     <p style="font-weight:bold;margin:0;">Kilometers Driven : <%=data.kilometersDriven%> KM</p>
                                     <p style="font-weight:bold;margin:0;">Vehicle RegNo : <%=data.vehicleRegNo%></p>
+
+                                    <p style="font-weight:bold;margin:0;">Owner Ship : <%=data.ownerShip%></p>
+                                    <p style="font-weight:bold;margin:0;">Insurance : <%=data.insurance%></p>
+                                    <p style="font-weight:bold;margin:0;">Selling staus : <%if(data.sold==false){%>IN SALE<%}else{%>SOLD OUT <%}%> </p>
+                                    <%if(data.insuranceDate){%>
+                                        <p style="font-weight:bold;margin:0;">InsuranceDate : <%=data.insuranceDate%></p>
+                                    <%}%>
+                                    <br/>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-12">
+                                            <div class="form-group">
+                                                <label for="trim">Sold Status</label>
+                                                <select onchange="changeSoldStatus(this.value, '<%=data.id%>')" name="sold" id="sold" class="form-control">
+                                                    <option selected disabled >SELECT</option>
+                                                    <option value="IN SALE" >IN SALE</option>
+                                                    <option value="SOLD OUT">SOLD OUT</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p style="margin-top:1em;"><a class="btn btn-primary btn-addtocart" data-toggle="modal" data-target=".bd-example-modal-lg"> Edit Details</a></p>
@@ -96,7 +116,7 @@
                                         </div>
                                     </div>
 								</div>
-							</div>
+                            </div>
 				        </div>
 			        </div>
 		        </div>

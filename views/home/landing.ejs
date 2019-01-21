@@ -65,10 +65,11 @@
         <div class="row">
 
             <% data.forEach(function(cars){ %>
+                <%if(cars.sold == false){%>
                 <div class="col-md-3 text-center">
                     <div class="product-entry">
                         <div class="product-img" style="background-image: url(<%=cars.carImage1%>);">
-                            <p class="tag"><span class="new">New</span></p>
+                            <p class="tag"><span class="new"><%if(cars.sold==true){%>SOLD OUT<%}else{%>NEW<%}%></span></p>
                             <div class="cart">
                                 <p>
                                     <span><a href="/view_details/<%=cars.id%>"><i class="icon-eye"></i></a></span> 
@@ -81,6 +82,7 @@
                         </div>
                     </div>
                 </div>
+                <%}%>
             <%});%>
         </div>
     </div>

@@ -107,6 +107,21 @@
                                                 <th scope="row">Vehicle RegNo</th>
                                                 <td><%=data.vehicleRegNo%></td>
                                               </tr>
+
+                                              <tr>
+                                                <th scope="row">Owner Ship</th>
+                                                <td><%=data.ownerShip%></td>
+                                              </tr>
+                                              <tr>
+                                                <th scope="row">Insurance</th>
+                                                <td><%=data.insurance%></td>
+                                              </tr>
+                                              <%if(data.insuranceDate){%>
+                                                <tr>
+                                                    <th scope="row">Insurance Date</th>
+                                                    <td><%=data.insuranceDate%></td>
+                                                </tr>
+                                                <%}%>
                                             </tbody>
                                     </table>
                                     </div>

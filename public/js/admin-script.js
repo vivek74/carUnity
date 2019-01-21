@@ -398,7 +398,9 @@ $(document).ready(function(){
 		$('.loader-card').css("display", "none");
 		let html = '';
 		data.data.forEach(function(allCar){
-			html += '<div class="col-md-4 text-center"><div class="product-entry"><div class="product-img" style="background-image: url('+allCar.carImage1+');"><div class="cart"><p><span><a href="/view_details/'+ allCar._id +'"><i class="icon-eye"></i></a></span> </p></div></div><div class="desc"><h3><a>'+allCar.model+'</a></h3><p class="price"><span>Rs '+allCar.price+'</span></p></div></div></div>';
+			if(allCar.sold == false){
+				html += '<div class="col-md-4 text-center"><div class="product-entry"><div class="product-img" style="background-image: url('+allCar.carImage1+');"><div class="cart"><p><span><a href="/view_details/'+ allCar._id +'"><i class="icon-eye"></i></a></span> </p></div></div><div class="desc"><h3><a>'+allCar.model+'</a></h3><p class="price"><span>Rs '+allCar.price+'</span></p></div></div></div>';
+			}
 		});
 		$('#getCars').html(html);
 	});
@@ -414,7 +416,9 @@ function getModified(category, make, model, year, trim){
 			$('.loader-card').css("display", "none");
 			let html = '';
 			data.data.forEach(function(allCar){
+				if(allCar.sold == false){
 				html += '<div class="col-md-4 text-center"><div class="product-entry"><div class="product-img" style="background-image: url('+allCar.carImage1+');"><div class="cart"><p><span><a href="/view_details/'+ allCar._id +'"><i class="icon-eye"></i></a></span> </p></div></div><div class="desc"><h3><a>'+allCar.model+'</a></h3><p class="price"><span>Rs '+allCar.price+'</span></p></div></div></div>';
+				}
 			});
 			$('#getCars').html(html);
 		});
@@ -426,7 +430,9 @@ function getModified(category, make, model, year, trim){
 			$('.loader-card').css("display", "none");
 			let html = '';
 			data.data.forEach(function(allCar){
+				if(allCar.sold == false){
 				html += '<div class="col-md-4 text-center"><div class="product-entry"><div class="product-img" style="background-image: url('+allCar.carImage1+');"><div class="cart"><p><span><a href="/view_details/'+ allCar._id +'"><i class="icon-eye"></i></a></span> </p></div></div><div class="desc"><h3><a>'+allCar.model+'</a></h3><p class="price"><span>Rs '+allCar.price+'</span></p></div></div></div>';
+				}
 			});
 			$('#getCars').html(html);
 		});
@@ -438,7 +444,9 @@ function getModified(category, make, model, year, trim){
 			$('.loader-card').css("display", "none");
 			let html = '';
 			data.data.forEach(function(allCar){
+				if(allCar.sold == false){
 				html += '<div class="col-md-4 text-center"><div class="product-entry"><div class="product-img" style="background-image: url('+allCar.carImage1+');"><div class="cart"><p><span><a href="/view_details/'+ allCar._id +'"><i class="icon-eye"></i></a></span> </p></div></div><div class="desc"><h3><a>'+allCar.model+'</a></h3><p class="price"><span>Rs '+allCar.price+'</span></p></div></div></div>';
+				}
 			});
 			$('#getCars').html(html);
 		});
@@ -450,7 +458,9 @@ function getModified(category, make, model, year, trim){
 			$('.loader-card').css("display", "none");
 			let html = '';
 			data.data.forEach(function(allCar){
+				if(allCar.sold == false){
 				html += '<div class="col-md-4 text-center"><div class="product-entry"><div class="product-img" style="background-image: url('+allCar.carImage1+');"><div class="cart"><p><span><a href="/view_details/'+ allCar._id +'"><i class="icon-eye"></i></a></span> </p></div></div><div class="desc"><h3><a>'+allCar.model+'</a></h3><p class="price"><span>Rs '+allCar.price+'</span></p></div></div></div>';
+				}
 			});
 			$('#getCars').html(html);
 		});
@@ -462,7 +472,9 @@ function getModified(category, make, model, year, trim){
 			$('.loader-card').css("display", "none");
 			let html = '';
 			data.data.forEach(function(allCar){
+				if(allCar.sold == false){
 				html += '<div class="col-md-4 text-center"><div class="product-entry"><div class="product-img" style="background-image: url('+allCar.carImage1+');"><div class="cart"><p><span><a href="/view_details/'+ allCar._id +'"><i class="icon-eye"></i></a></span> </p></div></div><div class="desc"><h3><a>'+allCar.model+'</a></h3><p class="price"><span>Rs '+allCar.price+'</span></p></div></div></div>';
+				}
 			});
 			$('#getCars').html(html);
 		});
@@ -476,7 +488,6 @@ $(document).ready(function(){
 		event.preventDefault();
 		event.stopPropagation();
 		var data={"name":$("#nameQ").val(),"email":$("#emailQ").val(), "phone":$("#phoneQ").val(), "address":$("#addressQ").val(), "carName":$("#carNameQ").val(), "purpose":$("#purposeQ").val()};
-		//console.log(JSON.stringify(data));
 		$.ajax({
 			beforeSend: function(){
 				$('.lodingLogin').css("display", "inline");
@@ -573,3 +584,29 @@ $(document).ready(function(){
     $("#contact_hide").hide();
 });
 
+
+//validity detail
+
+
+    function mendetory(value) {
+        if(value == "Full insurance"){
+            $("#addynamic").html('<div class="form-row"><div class="form-group col-md-12"><div class="form-group"><label for="insuranceDate">Insurance date</label><input type="text" name="insuranceDate" class="form-control" placeholder="mm/dd/yyyy" required></div></div></div>');
+        }
+        if(value == "No insurance" || value=="3rd Party insurance"){
+            $("#addynamic").html("");
+        }
+    }
+
+//change sold status
+
+function changeSoldStatus(value, id) {
+	$.get(
+		"/admin/change_sold_status",{
+			'sold': value,
+			'id': id
+		}
+	).done(data => {
+		window.location.href = '/admin/product_details/'+id;
+	});
+	//alert(id);
+}
